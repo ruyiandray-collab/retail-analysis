@@ -1,0 +1,15 @@
+{
+  "mode": "native_subagents",
+  "native_tool_available": true,
+  "requested_real_subagents": true,
+  "runtime": "Claude Code Agent tool（general-purpose subagent，后台并行）",
+  "spawn_attempts": [
+    {"role": "locator", "agent_id": "aa038fe4524889d27", "status": "ok", "error": null},
+    {"role": "mechanism", "agent_id": "adb273440a57d6e39", "status": "ok", "error": null},
+    {"role": "falsifier", "agent_id": "a02ed06fca1452487", "status": "ok", "error": null},
+    {"role": "reviewer", "agent_id": "a9d68335c6abe01fa", "status": "ok", "error": null}
+  ],
+  "dispatch_order": "locator / mechanism / falsifier 在同一轮并行派发，彼此不读对方工件；三者完成后才派发 reviewer",
+  "fallback_reason": null,
+  "reviewer_downgrades_accepted": ["C004", "C007", "C008", "C009", "C010", "C012", "C013", "C014"]
+}

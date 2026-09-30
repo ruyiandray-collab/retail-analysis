@@ -1,0 +1,44 @@
+{"agent": "reviewer", "round": 2, "status": "degraded", "generated_at": "2026-09-30T22:40:00+08:00",
+ "round1_followup": [
+  {"item": "C001：limitations 引用改为 C004；1–2 月剔除改称方法学保守处理", "status": "done", "note": "两处均已改，并补入 2010-06 比 2011-06 低 12.77 个百分点的对照。"},
+  {"item": "C002：补「Q1 只含 3 月、不宜列为最好季度」", "status": "done", "note": "已写入 limitations。"},
+  {"item": "C003 与 C004 相邻呈现；C004 不引用 Falsifier 未入证据包的 55.6%", "status": "done", "note": "两条相邻；claims 中没有 55.6。"},
+  {"item": "C005：L0→L1，12 月 vs 11 月差值入证据包", "status": "done", "note": "已降为 L1 并引用 E018，Reviewer 复算一致（-2.76，-18.19 至 +12.67）。但 E018 的 file 字段写的是 analysis_output.json，数字实际在 robustness_output.json（dec_vs_nov），须改指针。"},
+  {"item": "补一条回答「最好月份」（3–4 月，不单独点名 3 月）", "status": "partial", "note": "已新增 C012，但写成 L0 的「最好」，没有说明 3–4 月与 7 月（70.27%）不可区分，见 C012 的 finding。"},
+  {"item": "C006：改为 Q2/Q4/Q3 三季完整对比，删 10 月 vs 4 月", "status": "done", "note": "已改写，并说明 Q4 人数靠获客量支撑。"},
+  {"item": "C007：bootstrap 中位数差入证据包，写明 12 个月净额口径", "status": "done", "note": "E019 已登记（区间 -279.23 至 -112.35，与第 1 轮 Locator 的 -278.84 至 -112.34 相差在 bootstrap 误差内），口径已写明。"},
+  {"item": "C008：改为「不能解释主要差距」、写出三个解释名称、披露与 Mechanism 的口径冲突", "status": "done", "note": "三处均已落实。"},
+  {"item": "C009：改用无条件拆分，并列「时机/构成」两种解释，披露发票代理的局限", "status": "done", "note": "C009 改用 E020/E021 无条件拆分；解释拆到 C013 并列两种候选；发票代理的局限写在 C013。"},
+  {"item": "C010：补「纯年度下行不是主要解释」的定性表述", "status": "done", "note": "已写入 limitations，标明为定性推断。"},
+  {"item": "C011：重写为条件式预算规则（决策对象、触发条件、验收指标、风险、适用范围），均值比入证据包", "status": "partial", "note": "五个要素齐全，均值比 0.77 已入 E019。但阈值 0.72 只给了点估计，没有区间；Reviewer 复算 bootstrap 中位数比约 0.63–0.82、均值比约 0.60–0.97，阈值本身的不确定性没有披露，见 C011 的 finding。"},
+  {"item": "把缺 CustomerID 写入全局 limitations", "status": "partial", "note": "新增 C014，并在 C003 加了限制，但没有写出全表 22.24% 与 03_quality 为 DEGRADED；且 C014 只用行占比，按发票数口径方向相反（见 C014 的 finding）。"},
+  {"item": "Mechanism 未入证据包的数字不得引用", "status": "done", "note": "claims 中没有出现 -17.17、15.39%、58.40% vs 52.42% 等数字。"},
+  {"item": "待登记数字：12 月 vs 11 月差、中位数差区间、净额均值、无条件拆分、固定日历窗口", "status": "partial", "note": "五项均已登记为 E018–E022，Reviewer 复算一致；但 E018、E020、E021、E022 的 file 字段指向 analysis_output.json，该文件中没有这些数字（实际在 robustness_output.json），不满足发布检查第 10 条的可定位要求。"}
+ ],
+ "findings": [
+  {"statement": "C001：verdict=pass；理由：第 1 轮要求的两处措辞修改均已落实，数字与 E003/E004 一致。", "level": "L0", "evidence_ids": ["E003", "E004"], "limitations": ["2011-01/02 同期群人数少，跨年差本身噪声大"], "confidence": "high", "claim_id": "C001", "verdict": "pass"},
+  {"statement": "C002：verdict=pass；理由：数字与 E005 一致，已补 Q1 的限制。", "level": "L0", "evidence_ids": ["E005"], "limitations": ["Q1 只有 3 月"], "confidence": "high", "claim_id": "C002", "verdict": "pass"},
+  {"statement": "C003：verdict=pass；理由：-14.92 个百分点（-19.67 至 -10.18）与 E006 一致，基线为 Q2，单位写清；新增的 C010/C014 交叉限制合适（C014 的表述须按其 finding 限定为行口径）。", "level": "L1", "evidence_ids": ["E006"], "limitations": ["正态近似区间", "只有一个完整年度"], "confidence": "high", "claim_id": "C003", "verdict": "pass"},
+  {"statement": "C004：verdict=pass；理由：与 E015/E016、robustness_output.json 一致，没有引用未入证据包的数字。", "level": "L1", "evidence_ids": ["E015", "E016"], "limitations": ["每次只改一个口径"], "confidence": "high", "claim_id": "C004", "verdict": "pass"},
+  {"statement": "C005：verdict=pass；理由：已降为 L1；46 人、50%、36.12%–63.88%（E017）与 -2.76（-18.19 至 +12.67，E018）均一致，「与 11 月不可区分」有区间支撑。须修一处证据指针：E018 的 file 改为 outputs/run2_cohort/robustness_output.json（键 dec_vs_nov）。", "level": "L1", "evidence_ids": ["E017", "E018"], "limitations": ["12 月同期群与 3 月同期群规模相差约 9.6 倍", "E018 的 file 指针错误（数字本身无误）"], "confidence": "high", "claim_id": "C005", "verdict": "pass"},
+  {"statement": "C006：verdict=pass；理由：574/414/386 与 747/816 均可在 E005 定位；已按第 1 轮要求改为三季完整对比，并指出人数取决于获客量，不能再被当作「Q4 不宜削减」的依据。", "level": "L0", "evidence_ids": ["E005"], "limitations": ["绝对人数不代表预算的边际效果"], "confidence": "high", "claim_id": "C006", "verdict": "pass"},
+  {"statement": "C007：verdict=pass；理由：493.74、687.62、-193.88、区间 -279.23 至 -112.35、均值 997.51/1,294.23 与 E019 一致，Reviewer 独立复算中位数与均值一致；区间不含 0，满足 L1；净额口径（365 天、含首单、已扣退货）已写明。", "level": "L1", "evidence_ids": ["E019"], "limitations": ["净额是收入口径，不是毛利", "未扣获客成本"], "confidence": "high", "claim_id": "C007", "verdict": "pass"},
+  {"statement": "C008：verdict=pass；理由：已改为「不能说明主要差距」，写出三个解释的名称，并披露「首单含圣诞品」与「按时间形态属季节性买家」的口径冲突；数字与 E009/E010/E011 一致。", "level": "L1", "evidence_ids": ["E009", "E010", "E011"], "limitations": ["逐个控制，没有做多变量联合控制"], "confidence": "medium", "claim_id": "C008", "verdict": "pass"},
+  {"statement": "C009：verdict=pass（L2 成立）；理由：Reviewer 在原始数据上独立复算 E020（12.45% vs 33.58%，-21.13，区间 -25.14 至 -17.12）、E021（13.39% vs 10.78%，+2.6，区间 -0.64 至 +5.84）和 E013（29.59% vs 25.98%），结果完全一致。三段无条件拆分可以闭合对账：Q4 为 29.59+12.45+13.39=55.43≈55.42，Q2 为 25.98+33.58+10.78=70.34；各段差 3.6-21.13+2.6=-14.93，约等于 C003 的 -14.92。这满足合同中 L2「一个可闭合的分子分母/贡献度对账」的要求。本条只描述差距出现在哪个时段，没有因果措辞，不需要 identification_strategy。建议两处小改：①把上述对账写进 statement 或 limitations，作为 L2 的依据；②「之后没有追回」改为「第 181–365 天没有显著追回」，与「区间含 0」的表述一致。", "level": "L2", "evidence_ids": ["E013", "E020", "E021", "E006"], "limitations": ["首次复购口径：只看第一次复购落在哪一段", "只有 2010 一个年度"], "confidence": "medium", "claim_id": "C009", "verdict": "pass"},
+  {"statement": "C010：verdict=pass；理由：已补定性推断并标注，数字与 E008 一致。", "level": "L1", "evidence_ids": ["E008"], "limitations": ["缺 2011 年 Q4 的跨年对照"], "confidence": "medium", "claim_id": "C010", "verdict": "pass"},
+  {"statement": "C011：verdict=downgrade（保持 L3，改写阈值表述；解除 block）；理由：第 1 轮 block 所缺的要素已补齐：决策对象（各季获客预算的相对权重）、触发条件（Q4 与 Q2 单客获客成本之比）、验收指标（下一年各季 180 天复购率、12 个月净额/获客成本、次年 1–4 月触达 holdout）、风险（单一年度、季节与趋势未分离、均值不等于边际效果、没有成本与渠道数据）、适用范围（有 ID 的新客），并以 L2 的 C009（E020）作为 holdout 的依据；没有因果措辞。剩余问题：①阈值 0.72 只是点估计，Reviewer 复算 bootstrap（2000 次，seed 1）中位数比约 0.63–0.82、均值比约 0.60–0.97；获客成本之比落在 0.63–0.82 时，数据判断不了应该移还是留，规则须写成区间；②总价值取决于人数×均值，用中位数比 0.72 做阈值偏保守，应说明为什么选中位数，或与均值比并列；③净额是收入而不是毛利，隐含「各季毛利率相同」的假设，须写入风险；④规则把预算移向 Q2、Q3，但 Q3 中位数 597.78 只有 Q2 的约 0.87（E005 两数相除），应注明 Q3 不是与 Q2 等价的去向。最小修改：改为「若 Q4 单客获客成本 / Q2 > 0.82（中位数比区间上限），把 Q4 边际预算移向 Q2，其次 Q3；< 0.63 时维持 Q4；介于两者之间时不调整，先做验收测试」，并把比值区间登记进 E019。", "level": "L3", "evidence_ids": ["E019", "E020", "E006", "E005"], "limitations": ["阈值的不确定性（比值区间）尚未入证据包", "收入口径，没有考虑毛利率差异", "只有一个年度；同期群均值不等于边际预算效果"], "confidence": "medium", "claim_id": "C011", "verdict": "downgrade"},
+  {"statement": "C012：verdict=downgrade（保持 L0，改措辞）；理由：75.96%、73.47% 与 E004 一致。但「最好」是比较判断：Reviewer 复算 3–4 月合并 74.97% 比 5–6 月 68.58% 高 6.38 个百分点（区间 1.32 至 11.45，显著），比 7 月 70.27% 只高 4.7 个百分点（区间 -2.6 至 +11.99，不显著）；4 月比 5 月高 4.45 个百分点（区间 -3.15 至 +12.04，不显著）。最小修改：改为「365 天复购率点估计最高的是 3–4 月首购新客（75.96%、73.47%），但与 5 月、7 月的差异不显著，不宜单独点名 3 月」；如要保留「最好」这一比较判断，须把 3–4 月 vs 5–6 月的检验登记为证据并升为 L1。", "level": "L0", "evidence_ids": ["E004"], "limitations": ["3 月可能有左截断残留", "3–4 月与 5 月、7 月的差异不显著（Reviewer 复算，未入证据包）"], "confidence": "medium", "claim_id": "C012", "verdict": "downgrade"},
+  {"statement": "C013：verdict=downgrade（保持 L1，改写时机代理的对照口径）；理由：E022（36.5% vs 58.28%，-21.77，区间 -28.74 至 -14.81）经 Reviewer 独立复算一致；两种解释并列、未分离，status=hypothesis、L1，用「候选」而非断言，没有超过证据强度。问题有三：①时机代理拿 2011-01（983 张）与 2010-11（2,570 张）比，而 2010-11 是全年峰值，放大了淡旺季差距；与 C009 对应的对照应是两组各自第 61–180 天落在的日历月：Q2 新客约为 2010-06..2010-12（每月 1,276–2,570 张），Q4 新客约为 2011-01..2011-04（每月 983–1,312 张），应改用这两段的月均发票数并登记为证据；②E022 用 2010-11 vs 2010-03 代表 Q4 vs Q2，而 2010-03 属 Q1，最易受左截断影响，应在 limitations 写明，或按 Q4 vs Q2 同口径重算；③「差距的原因有两种候选」可改为「差距有两种候选解释」，避免读者当作因果结论。", "level": "L1", "evidence_ids": ["E014", "E022"], "limitations": ["固定日历窗口混入了客户年龄差异", "发票数受年末停业日影响", "两种解释未分离"], "confidence": "medium", "claim_id": "C013", "verdict": "downgrade"},
+  {"statement": "C014：verdict=downgrade（保持 L0，补口径并披露方向不一致）；理由：Reviewer 从 clean_lines.csv 复算按行占比 Q2 17.57%、Q3 16.8%、Q4 22.56%，与 E023 一致。但结论只用了行占比，却写成「无 ID 的买家」：按发票数计，缺 ID 发票占比 Q2 7.15%、Q3 7.5%、Q4 5.95%，Q4 反而最低；按金额计 Q2 9.39%、Q3 9.17%、Q4 17.59%，Q4 最高。三种口径方向不一致，不能说明 Q4 缺 ID 的「买家」更多。最小修改：statement 写明「按发票行计」；把发票数与金额口径登记进 E023 并写入 limitations；同时补上全局限制「全表 22.24% 的行缺 CustomerID，03_quality 状态为 DEGRADED」。", "level": "L0", "evidence_ids": ["E023"], "limitations": ["行、发票、金额三种口径方向不一致（发票与金额口径为 Reviewer 复算，未入证据包）", "无法得知无 ID 买家的人数"], "confidence": "medium", "claim_id": "C014", "verdict": "downgrade"}
+ ],
+ "conflicts": [
+  "证据指针冲突：E018、E020、E021、E022 的 file 字段为 outputs/run2_cohort/analysis_output.json，但该文件中没有这些数字（它们在 robustness_output.json 的 dec_vs_nov、first_repeat_61_180_q4_vs_q2、first_repeat_181_365_q4_vs_q2、calendar_2011_jan_sep_nov_vs_mar）。数字本身经 Reviewer 复算一致，只需改 file 字段。",
+  "缺 CustomerID 的季度差异随口径反向：按行计 Q4 最高（22.56%），按发票计 Q4 最低（5.95%），按金额计 Q4 最高（17.59%）；C003 与 C014 中「Q4 缺 ID 占比更高」的表述须限定为行口径。",
+  "C011 的阈值 0.72 与其 bootstrap 不确定性（约 0.63–0.82）之间的落差没有披露：获客成本之比落在该区间时，规则给出的方向不可靠。"
+ ],
+ "missing_data": [
+  "各季度获客成本、渠道与投放数据（C011 仍只能是条件式规则）",
+  "各季度毛利率（C011 用收入口径的净额代替价值）",
+  "第二个完整年度的 365 天同期群，用于分离季节与年度趋势，以及 C013 的两种解释",
+  "待登记入证据包：Q4/Q2 净额中位数比与均值比的 bootstrap 区间；3–4 月 vs 5–6 月、vs 7 月的复购率检验；缺 ID 按发票数与金额的季度占比；Q2、Q4 新客第 61–180 天所落日历月的月均发票数"
+ ]}

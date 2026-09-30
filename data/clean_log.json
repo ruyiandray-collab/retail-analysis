@@ -1,0 +1,14 @@
+{
+  "raw_rows": 1067371,
+  "non_product_rows": 5825,
+  "zero_value_rows": 6174,
+  "duplicate_rows": 34039,
+  "true_duplicate_rows": 11794,
+  "sheet_overlap_duplicate_rows": 22245,
+  "clean_rows": 1021333,
+  "net_revenue": 18928551.86,
+  "missing_customer_rows": 227172,
+  "missing_customer_share_percent": 22.24,
+  "date_min": "2009-12-01",
+  "date_max": "2011-12-09"
+}

@@ -1,0 +1,47 @@
+--- a/scripts/da_common.py
++++ b/scripts/da_common.py
+@@ -87,12 +87,25 @@
+             yield
+ 
+ 
++def tolerant_stdio() -> None:
++    """让 stdout/stderr 遇到当前编码写不出的字符时替换而不是崩溃。
++
++    中文 Windows 下管道输出的编码是 GBK，「✓」「✗」「–」写不进去会抛 UnicodeEncodeError，
++    脚本在已写完结果文件后以退出码 1 结束，调用方会误判为对账失败。保留原编码，只改错误策略。
++    """
++    for stream in (sys.stdout, sys.stderr):
++        reconfigure = getattr(stream, "reconfigure", None)
++        if reconfigure is not None:
++            reconfigure(errors="replace")
++
++
+ def cli_guard(work: Callable[[], int]) -> int:
+     """把可预期的输入错误转成结构化输出 + 退出码 2，不把 traceback 甩给用户。
+ 
+     只兜输入/环境类问题；IndexError、KeyError、TypeError 这类程序缺陷继续抛栈，
+     否则真正的 bug 会被伪装成「用户输入错」而长期潜伏。
+     """
++    tolerant_stdio()
+     with quiet_numeric():
+         try:
+             return work()
+--- a/scripts/da_report.py
++++ b/scripts/da_report.py
+@@ -40,7 +40,7 @@
+ 
+ ensure_dependencies()
+ 
+-from da_common import write_json  # noqa: E402
++from da_common import tolerant_stdio, write_json  # noqa: E402
+ 
+ SECTIONS = ("核心发现", "分析背景与目标", "数据概况", "深入分析", "结论与建议", "附录")
+ DEFAULT_THEME = "apple-graphite"
+@@ -971,6 +971,7 @@
+ 
+ 
+ def main() -> int:
++    tolerant_stdio()
+     parser = argparse.ArgumentParser(description="把报告规格 JSON 渲染成自包含离线 HTML")
+     parser.add_argument("--spec", required=True, help="报告规格 JSON 路径")
+     parser.add_argument("--out", required=True, help="输出 HTML 路径")

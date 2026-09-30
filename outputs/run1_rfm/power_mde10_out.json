@@ -1,0 +1,57 @@
+{
+  "op": "power_mde",
+  "metric_type": "binary",
+  "design": {
+    "alpha": 0.05,
+    "target_power": 0.8,
+    "two_sided": true,
+    "treatment_to_control_ratio": 1.0,
+    "baseline": 0.45
+  },
+  "limitations": [
+    "样本量按正态近似计算，极低事件率或强偏态指标需要改用精确方法或模拟。",
+    "本算子只做设计，不代表实验已经取得该效应。"
+  ],
+  "given_mde": {
+    "effect_input": "absolute",
+    "absolute_effect": 0.1,
+    "relative_effect": 0.22222222222222224,
+    "n_control": 389,
+    "n_treatment": 389,
+    "n_total": 778
+  },
+  "power_curve": [
+    {
+      "absolute_effect": 0.05,
+      "relative_effect": 0.11111111111111112,
+      "n_control": 1562
+    },
+    {
+      "absolute_effect": 0.07500000000000001,
+      "relative_effect": 0.16666666666666669,
+      "n_control": 694
+    },
+    {
+      "absolute_effect": 0.1,
+      "relative_effect": 0.22222222222222224,
+      "n_control": 389
+    },
+    {
+      "absolute_effect": 0.15000000000000002,
+      "relative_effect": 0.33333333333333337,
+      "n_control": 171
+    },
+    {
+      "absolute_effect": 0.2,
+      "relative_effect": 0.4444444444444445,
+      "n_control": 94
+    }
+  ],
+  "config": {
+    "metric_type": "binary",
+    "baseline_rate": 0.45,
+    "mde_absolute": 0.1,
+    "alpha": 0.05,
+    "power": 0.8
+  }
+}

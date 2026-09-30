@@ -1,0 +1,236 @@
+{
+  "reference_date": "2011-12-10",
+  "window": "2010-12-10..2011-12-09",
+  "customers_scored_window": 4261,
+  "customers_nonpositive_net": 16,
+  "customers_single_purchase": 1514,
+  "single_purchase_share_percent": 35.53,
+  "net_revenue_window": 7965817.0,
+  "concentration": {
+    "top_1pct_share_percent": 29.95,
+    "top_5pct_share_percent": 48.64,
+    "top_10pct_share_percent": 59.93,
+    "top_20pct_share_percent": 73.6
+  },
+  "score_cutoffs": {
+    "R": {
+      "1": [
+        171.0,
+        365.0
+      ],
+      "2": [
+        69.0,
+        170.0
+      ],
+      "3": [
+        33.0,
+        68.0
+      ],
+      "4": [
+        15.0,
+        32.0
+      ],
+      "5": [
+        1.0,
+        13.0
+      ]
+    },
+    "M": {
+      "1": [
+        2.9,
+        237.07
+      ],
+      "2": [
+        237.61,
+        463.8
+      ],
+      "3": [
+        463.91,
+        896.0
+      ],
+      "4": [
+        896.67,
+        1957.32
+      ],
+      "5": [
+        1959.38,
+        278778.02
+      ]
+    },
+    "F": {
+      "1": [
+        1,
+        1
+      ],
+      "2": [
+        2,
+        2
+      ],
+      "3": [
+        3,
+        4
+      ],
+      "4": [
+        5,
+        9
+      ],
+      "5": [
+        10,
+        null
+      ]
+    }
+  },
+  "segments": [
+    {
+      "segment": "核心高价值",
+      "customers": 749,
+      "share_of_customers_percent": 17.58,
+      "net_revenue": 4959306.44,
+      "share_of_net_revenue_percent": 62.26,
+      "median_recency_days": 10.0,
+      "median_frequency": 9.0,
+      "median_net_revenue": 2945.22
+    },
+    {
+      "segment": "高价值流失风险",
+      "customers": 78,
+      "share_of_customers_percent": 1.83,
+      "net_revenue": 206229.22,
+      "share_of_net_revenue_percent": 2.59,
+      "median_recency_days": 100.5,
+      "median_frequency": 6.0,
+      "median_net_revenue": 2107.02
+    },
+    {
+      "segment": "高消费中活跃",
+      "customers": 683,
+      "share_of_customers_percent": 16.03,
+      "net_revenue": 1531220.56,
+      "share_of_net_revenue_percent": 19.22,
+      "median_recency_days": 44.0,
+      "median_frequency": 4.0,
+      "median_net_revenue": 1543.33
+    },
+    {
+      "segment": "近期新客/低频",
+      "customers": 519,
+      "share_of_customers_percent": 12.18,
+      "net_revenue": 250420.29,
+      "share_of_net_revenue_percent": 3.14,
+      "median_recency_days": 18.0,
+      "median_frequency": 2.0,
+      "median_net_revenue": 352.69
+    },
+    {
+      "segment": "中间层",
+      "customers": 904,
+      "share_of_customers_percent": 21.22,
+      "net_revenue": 437128.87,
+      "share_of_net_revenue_percent": 5.49,
+      "median_recency_days": 48.0,
+      "median_frequency": 3.0,
+      "median_net_revenue": 479.17
+    },
+    {
+      "segment": "沉睡低价值",
+      "customers": 1312,
+      "share_of_customers_percent": 30.79,
+      "net_revenue": 583258.92,
+      "share_of_net_revenue_percent": 7.32,
+      "median_recency_days": 193.0,
+      "median_frequency": 1.0,
+      "median_net_revenue": 304.4
+    },
+    {
+      "segment": "净额非正",
+      "customers": 16,
+      "share_of_customers_percent": 0.38,
+      "net_revenue": -1747.3,
+      "share_of_net_revenue_percent": -0.02,
+      "median_recency_days": 110.5,
+      "median_frequency": 1.0,
+      "median_net_revenue": 0.0
+    }
+  ],
+  "at_risk_detail": {
+    "customers": 78,
+    "net_revenue": 206229.22,
+    "median_recency_days": 100.5,
+    "recency_min_days": 71,
+    "recency_max_days": 276
+  },
+  "gross_vs_net_trap": [
+    {
+      "customer": 16446,
+      "gross": 168472.5,
+      "net": 2.9,
+      "gross_rank": 4
+    },
+    {
+      "customer": 12346,
+      "gross": 77183.6,
+      "net": 0.0,
+      "gross_rank": 9
+    }
+  ],
+  "backtest": {
+    "reference_date": "2011-06-10",
+    "outcome_window": "2011-06-10..2011-12-09",
+    "segments": [
+      {
+        "segment": "核心高价值",
+        "customers": 793,
+        "repurchase_rate_percent": 94.7,
+        "future_net_per_customer": 3607.7,
+        "share_of_future_net_percent": 68.17
+      },
+      {
+        "segment": "高价值流失风险",
+        "customers": 58,
+        "repurchase_rate_percent": 58.62,
+        "future_net_per_customer": 1014.94,
+        "share_of_future_net_percent": 1.4
+      },
+      {
+        "segment": "高消费中活跃",
+        "customers": 688,
+        "repurchase_rate_percent": 73.26,
+        "future_net_per_customer": 868.83,
+        "share_of_future_net_percent": 14.24
+      },
+      {
+        "segment": "近期新客/低频",
+        "customers": 500,
+        "repurchase_rate_percent": 56.4,
+        "future_net_per_customer": 411.17,
+        "share_of_future_net_percent": 4.9
+      },
+      {
+        "segment": "中间层",
+        "customers": 863,
+        "repurchase_rate_percent": 48.9,
+        "future_net_per_customer": 224.68,
+        "share_of_future_net_percent": 4.62
+      },
+      {
+        "segment": "沉睡低价值",
+        "customers": 1411,
+        "repurchase_rate_percent": 34.51,
+        "future_net_per_customer": 197.86,
+        "share_of_future_net_percent": 6.65
+      },
+      {
+        "segment": "净额非正",
+        "customers": 10,
+        "repurchase_rate_percent": 10.0,
+        "future_net_per_customer": 28.59,
+        "share_of_future_net_percent": 0.01
+      }
+    ],
+    "overall": {
+      "customers": 4323,
+      "repurchase_rate_percent": 57.39,
+      "future_net_total": 4196466.75
+    }
+  }
+}

@@ -1,0 +1,326 @@
+{
+ "schema_version": "1.0",
+ "run": "outputs/run1_rfm",
+ "source": {
+  "file": "data/clean_lines.csv",
+  "sha256": "630f1af66139845885553679aa672517f8857d1f6c1d4e16c1b60ac31954e282",
+  "raw_source": "UCI Online Retail II (CC BY 4.0)"
+ },
+ "evidence": [
+  {
+   "id": "E001",
+   "kind": "profile",
+   "file": "data/clean_lines.csv",
+   "scope": "有 CustomerID 的购买客户 / 2010-12-10..2011-12-09",
+   "customers_scored": 4261,
+   "net_revenue_window": 7965817.0,
+   "customers_single_purchase": 1514,
+   "single_purchase_share_percent": 35.53,
+   "customers_nonpositive_net": 16,
+   "formula": "客户级聚合：F=购买发票数，M=净额",
+   "params": {
+    "single_purchase_invoices": 1
+   }
+  },
+  {
+   "id": "E002",
+   "kind": "cleaning",
+   "file": "data/clean_log.json",
+   "scope": "全量 2009-12-01..2011-12-09",
+   "raw_rows": 1067371,
+   "clean_rows": 1021333,
+   "duplicate_rows": 34039,
+   "net_revenue": 18928551.86,
+   "missing_customer_rows": 227172,
+   "missing_customer_share_percent": 22.24,
+   "note": "与 skill 自带案例公开值一致：clean_rows 1,021,333 / net_revenue 18,928,551.86 / 缺 ID 227,172 行"
+  },
+  {
+   "id": "E003",
+   "kind": "concentration",
+   "file": "outputs/run1_rfm/analysis_output.json",
+   "scope": "按窗口净额排序的客户 / 2010-12-10..2011-12-09",
+   "top_1pct_share_percent": 29.95,
+   "top_5pct_share_percent": 48.64,
+   "top_10pct_share_percent": 59.93,
+   "top_20pct_share_percent": 73.6,
+   "params": {
+    "top_cut_1_percent": 1,
+    "top_cut_5_percent": 5,
+    "top_cut_10_percent": 10,
+    "top_cut_20_percent": 20
+   }
+  },
+  {
+   "id": "E004",
+   "kind": "segment",
+   "file": "outputs/run1_rfm/analysis_output.json",
+   "scope": "核心高价值 / 2010-12-10..2011-12-09",
+   "customers": 749,
+   "share_of_customers_percent": 17.58,
+   "net_revenue": 4959306.44,
+   "share_of_net_revenue_percent": 62.26,
+   "median_recency_days": 10.0,
+   "median_frequency": 9.0,
+   "median_net_revenue": 2945.22,
+   "params": {
+    "high_score_threshold": 4
+   }
+  },
+  {
+   "id": "E005",
+   "kind": "segment",
+   "file": "outputs/run1_rfm/analysis_output.json",
+   "scope": "高价值流失风险 / 2010-12-10..2011-12-09",
+   "customers": 78,
+   "share_of_customers_percent": 1.83,
+   "net_revenue": 206229.22,
+   "share_of_net_revenue_percent": 2.59,
+   "median_recency_days": 100.5,
+   "median_frequency": 6.0,
+   "median_net_revenue": 2107.02,
+   "recency_min_days": 71,
+   "recency_max_days": 276
+  },
+  {
+   "id": "E006",
+   "kind": "segment",
+   "file": "outputs/run1_rfm/analysis_output.json",
+   "scope": "高消费中活跃 / 2010-12-10..2011-12-09",
+   "customers": 683,
+   "share_of_customers_percent": 16.03,
+   "net_revenue": 1531220.56,
+   "share_of_net_revenue_percent": 19.22,
+   "median_recency_days": 44.0,
+   "median_frequency": 4.0,
+   "median_net_revenue": 1543.33
+  },
+  {
+   "id": "E007",
+   "kind": "segment",
+   "file": "outputs/run1_rfm/analysis_output.json",
+   "scope": "沉睡低价值 / 2010-12-10..2011-12-09",
+   "customers": 1312,
+   "share_of_customers_percent": 30.79,
+   "net_revenue": 583258.92,
+   "share_of_net_revenue_percent": 7.32,
+   "median_recency_days": 193.0,
+   "median_frequency": 1.0,
+   "median_net_revenue": 304.4
+  },
+  {
+   "id": "E008",
+   "kind": "segment",
+   "file": "outputs/run1_rfm/analysis_output.json",
+   "scope": "近期新客/低频 / 2010-12-10..2011-12-09",
+   "customers": 519,
+   "share_of_customers_percent": 12.18,
+   "net_revenue": 250420.29,
+   "share_of_net_revenue_percent": 3.14,
+   "median_recency_days": 18.0,
+   "median_frequency": 2.0,
+   "median_net_revenue": 352.69
+  },
+  {
+   "id": "E009",
+   "kind": "segment",
+   "file": "outputs/run1_rfm/analysis_output.json",
+   "scope": "中间层 / 2010-12-10..2011-12-09",
+   "customers": 904,
+   "share_of_customers_percent": 21.22,
+   "net_revenue": 437128.87,
+   "share_of_net_revenue_percent": 5.49,
+   "median_recency_days": 48.0,
+   "median_frequency": 3.0,
+   "median_net_revenue": 479.17
+  },
+  {
+   "id": "E010",
+   "kind": "backtest",
+   "file": "outputs/run1_rfm/analysis_output.json",
+   "scope": "同规则在 2011-06-10 打分，观察 2011-06-10..2011-12-09",
+   "overall_customers": 4323,
+   "overall_repurchase_rate_percent": 57.39,
+   "core_customers": 793,
+   "core_repurchase_rate_percent": 94.7,
+   "core_future_net_per_customer": 3607.7,
+   "core_share_of_future_net_percent": 68.17,
+   "at_risk_customers": 58,
+   "at_risk_repurchase_rate_percent": 58.62,
+   "at_risk_future_net_per_customer": 1014.94,
+   "high_spend_repurchase_rate_percent": 73.26,
+   "high_spend_future_net_per_customer": 868.83,
+   "new_low_repurchase_rate_percent": 56.4,
+   "new_low_future_net_per_customer": 411.17,
+   "mid_repurchase_rate_percent": 48.9,
+   "mid_future_net_per_customer": 224.68,
+   "dormant_repurchase_rate_percent": 34.51,
+   "dormant_future_net_per_customer": 197.86,
+   "at_risk_vs_mid_future_net_ratio": 4.52,
+   "at_risk_vs_dormant_future_net_ratio": 5.13,
+   "params": {
+    "outcome_window_days": 183
+   }
+  },
+  {
+   "id": "E011",
+   "kind": "gross_vs_net",
+   "file": "outputs/run1_rfm/analysis_output.json",
+   "scope": "按窗口毛额排名前 10 中净额 < 毛额 1% 的客户",
+   "customer_16446_gross": 168472.5,
+   "customer_16446_net": 2.9,
+   "customer_16446_gross_rank": 4,
+   "customer_12346_gross": 77183.6,
+   "customer_12346_net": 0.0,
+   "customer_12346_gross_rank": 9,
+   "params": {
+    "trap_customer_id": 16446
+   }
+  },
+  {
+   "id": "E012",
+   "kind": "operator_crosscheck",
+   "file": "outputs/run1_rfm/rfm_operator.json",
+   "scope": "skill rfm 算子（已修复方向 bug），输入为购买发票级毛额",
+   "entity_count": 4261,
+   "operator_high_value_active_customers": 1750,
+   "operator_high_value_active_share_of_customers_percent": 41.07,
+   "operator_high_value_active_share_of_monetary_percent": 81.31,
+   "note": "算子 high 阈值为分数≥3，本报告为≥4；M 为毛额而非净额，分层不直接可比。修复前算子把最近、最频繁、金额最高的客户标为 dormant"
+  },
+  {
+   "id": "E013",
+   "kind": "sensitivity",
+   "file": "outputs/run1_rfm/robustness_output.json",
+   "scope": "只改一个阈值，其余保持原口径",
+   "core_share_high_ge3_percent": 78.86,
+   "core_customers_high_ge3": 1493,
+   "core_share_high_eq5_percent": 40.34,
+   "core_customers_high_eq5": 229,
+   "at_risk_high_ge3": 316,
+   "at_risk_high_eq5": 9,
+   "at_risk_low_le1": 11,
+   "at_risk_low_le3": 238,
+   "params": {
+    "alt_high_threshold_3": 3,
+    "alt_high_threshold_5": 5,
+    "base_high_threshold": 4,
+    "base_at_risk_customers": 78
+   }
+  },
+  {
+   "id": "E014",
+   "kind": "fixed_day_threshold",
+   "file": "outputs/run1_rfm/robustness_output.json",
+   "scope": "F 分≥4 且 M 分≥4 的高价值客户，按距上次购买天数",
+   "over_60_days": 104,
+   "over_90_days": 46,
+   "over_120_days": 25,
+   "high_value_customers": 987,
+   "params": {
+    "high_score_threshold": 4,
+    "day_threshold_60": 60,
+    "day_threshold_90": 90,
+    "day_threshold_120": 120
+   }
+  },
+  {
+   "id": "E015",
+   "kind": "backtest_noise",
+   "file": "outputs/run1_rfm/robustness_output.json",
+   "scope": "2011-06-10 打分回测；旺季前窗口截至 2011-09-09",
+   "at_risk_ci95_low_percent": 45.8,
+   "at_risk_ci95_high_percent": 70.37,
+   "mid_ci95_low_percent": 45.58,
+   "mid_ci95_high_percent": 52.23,
+   "dormant_ci95_low_percent": 32.08,
+   "dormant_ci95_high_percent": 37.03,
+   "at_risk_pre_peak_repurchase_rate_percent": 25.86,
+   "mid_pre_peak_repurchase_rate_percent": 27.35,
+   "at_risk_future_net_median": 355.23,
+   "top3_share_of_segment_future_net_percent": 51.92,
+   "pre_peak_rank": 5,
+   "full_window_rank": 3,
+   "mid_future_net_median": 0.0,
+   "at_risk_future_net_mean_boot_ci95_low": 478.09,
+   "at_risk_future_net_mean_boot_ci95_high": 1686.53,
+   "params": {
+    "ci_level_percent": 95,
+    "top_n_customers": 3
+   }
+  },
+  {
+   "id": "E016",
+   "kind": "missing_id_bias",
+   "file": "outputs/run1_rfm/robustness_output.json",
+   "scope": "窗口 2010-12-10..2011-12-09 全部行",
+   "window_net_all_rows": 9370308.89,
+   "missing_id_net": 1407046.5,
+   "missing_id_share_of_window_net_percent": 15.02,
+   "missing_id_uk_row_share_percent": 98.85,
+   "core_share_of_all_net_percent": 52.93
+  },
+  {
+   "id": "E017",
+   "kind": "own_rhythm",
+   "file": "outputs/run1_rfm/robustness_output.json",
+   "scope": "高价值流失风险层：R / 本人历史购买间隔中位数（2009-12-01 起全量历史）",
+   "customers": 78,
+   "ratio_median": 3.19,
+   "silence_ge_2x_own_gap": 52,
+   "silence_ge_3x_own_gap": 41,
+   "silence_lt_1_5x_own_gap": 14,
+   "params": {
+    "multiple_2": 2,
+    "multiple_3": 3,
+    "multiple_1_5": 1.5
+   }
+  },
+  {
+   "id": "E018",
+   "kind": "country_mix",
+   "file": "outputs/run1_rfm/robustness_output.json",
+   "scope": "客户主要下单国家为英国的占比 / 2010-12-10..2011-12-09",
+   "uk_share_core_percent": 90.52,
+   "uk_share_all_scored_percent": 90.44
+  },
+  {
+   "id": "E019",
+   "kind": "reviewer_requested",
+   "file": "outputs/run1_rfm/robustness_output.json",
+   "scope": "Reviewer 要求补入证据包的数字 / 2010-12-10..2011-12-09",
+   "m_only_top_749_share_of_net_revenue_percent": 70.92,
+   "mid_future_net_median": 0.0,
+   "at_risk_last_purchase_aug_sep_2011": 60,
+   "hv_over_60_days_and_ge_2x_own_gap": 61,
+   "hv_over_90_days_and_ge_2x_own_gap": 40,
+   "high_spend_segment_hv_r_score_3": 160,
+   "params": {
+    "multiple_2": 2,
+    "day_threshold_60": 60,
+    "day_threshold_90": 90,
+    "high_score_threshold": 4,
+    "r_score_3": 3,
+    "top_n": 749,
+    "r_score_3_min_days": 33.0,
+    "r_score_3_max_days": 68.0
+   }
+  },
+  {
+   "id": "E020",
+   "kind": "power_mde",
+   "file": "outputs/run1_rfm/power_n52_out.json + power_mde10_out.json",
+   "scope": "召回 holdout 实验功效，基线复购率 45%，α=0.05，功效 80%，双侧",
+   "baseline_rate_percent": 45,
+   "n_per_arm_given": 52,
+   "detectable_absolute_effect_pp": 26.14,
+   "target_effect_pp": 10,
+   "n_per_arm_needed": 389,
+   "n_total_needed": 778,
+   "params": {
+    "power_percent": 80,
+    "arms": 2
+   }
+  }
+ ]
+}

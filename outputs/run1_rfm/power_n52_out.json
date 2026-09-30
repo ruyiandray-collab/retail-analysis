@@ -1,0 +1,28 @@
+{
+  "op": "power_mde",
+  "metric_type": "binary",
+  "design": {
+    "alpha": 0.05,
+    "target_power": 0.8,
+    "two_sided": true,
+    "treatment_to_control_ratio": 1.0,
+    "baseline": 0.45
+  },
+  "limitations": [
+    "样本量按正态近似计算，极低事件率或强偏态指标需要改用精确方法或模拟。",
+    "本算子只做设计，不代表实验已经取得该效应。"
+  ],
+  "given_sample_size": {
+    "n_control": 52.0,
+    "n_treatment": 52.0,
+    "detectable_absolute_effect": 0.26142929360061473,
+    "detectable_relative_effect": 0.5809539857791438
+  },
+  "config": {
+    "metric_type": "binary",
+    "baseline_rate": 0.45,
+    "n_per_arm": 52,
+    "alpha": 0.05,
+    "power": 0.8
+  }
+}

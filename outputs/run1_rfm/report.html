@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>老客召回：104 名高价值客户超 60 天未购，名单该按天数和个人节奏定，而不是按 RFM 分层</title>
+<style>
+:root {
+  --bg:#fbfbfd; --surface:#ffffff; --surface-alt:#f5f5f7;
+  --border:#d2d2d7; --ink:#1d1d1f; --ink-soft:#424245;
+  --muted:#86868b; --accent:#1d1d1f; --accent-soft:#f5f5f7;
+  --pos:#00695c; --neg:#b3261e;
+  --radius:18px; --radius-sm:12px;
+  --measure:68ch; --gap:72px;
+}
+* { box-sizing:border-box; }
+html { background:var(--bg); }
+body {
+  margin:0 auto; max-width:1040px; padding:72px 28px 96px;
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:17px; line-height:1.47; letter-spacing:-0.022em;
+  -webkit-font-smoothing:antialiased; font-variant-numeric:tabular-nums;
+}
+h1,h2,h3 { margin:0; font-weight:600; text-wrap:balance; }
+h1 { font-size:clamp(2.1rem,5vw,3.1rem); line-height:1.08; letter-spacing:-0.031em; }
+h2 { font-size:clamp(1.5rem,3.2vw,2.1rem); line-height:1.14; letter-spacing:-0.026em; }
+h3 { font-size:1.1875rem; line-height:1.3; letter-spacing:-0.01em; }
+p { margin:14px 0; max-width:var(--measure); color:var(--ink-soft); text-wrap:pretty; }
+b { color:var(--ink); font-weight:600; }
+.masthead { padding-bottom:26px; border-bottom:1px solid var(--border); }
+.eyebrow { margin:0 0 12px; font-size:.82rem; letter-spacing:.01em; color:var(--muted); font-weight:500; }
+.subtitle { margin:16px 0 0; font-size:1.22rem; line-height:1.42; color:var(--ink-soft); max-width:62ch; }
+.meta-row { display:flex; flex-wrap:wrap; gap:8px 34px; margin-top:26px; align-items:center; }
+.meta-item { font-size:.86rem; color:var(--ink-soft); }
+.meta-item b { display:block; font-size:.72rem; letter-spacing:.04em; color:var(--muted); font-weight:500; }
+.degraded { margin:22px 0 0; padding:16px 20px; border-radius:var(--radius-sm); background:var(--surface-alt);
+  border:1px solid var(--border); font-size:.88rem; color:var(--ink-soft); display:flex; flex-wrap:wrap; gap:8px 20px; align-items:baseline; }
+.degraded strong { color:var(--neg); font-size:.76rem; letter-spacing:.1em; }
+.deg-reason { color:var(--ink); }
+.toc { display:flex; flex-wrap:wrap; gap:22px; padding:14px 0; border-bottom:1px solid var(--border);
+  font-size:.84rem; position:sticky; top:0; background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:saturate(180%) blur(20px); z-index:5; }
+.toc a { color:var(--muted); text-decoration:none; transition:color .2s ease; }
+.toc a:hover { color:var(--ink); }
+.block { padding-top:var(--gap); }
+.block + .block { border-top:1px solid var(--border); }
+.block h2 { margin-bottom:24px; }
+.kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-bottom:30px; }
+.kpi { background:var(--surface-alt); border-radius:var(--radius); padding:22px 24px; }
+.kpi-label { display:block; font-size:.8rem; color:var(--muted); }
+.kpi-value { display:block; font-size:clamp(1.75rem,3.6vw,2.4rem); font-weight:600; letter-spacing:-0.024em; margin-top:8px; }
+.kpi-delta { display:inline-block; margin-top:8px; font-size:.84rem; color:var(--muted); }
+.kpi-delta.pos { color:var(--pos); }
+.kpi-delta.neg { color:var(--neg); }
+.finding { position:relative; background:#f5f5f7;
+  border:1px solid transparent;
+  border-radius:var(--radius); padding:26px 28px; margin-bottom:12px; overflow:hidden; }
+.finding .rule { position:absolute; left:0; top:0; bottom:0; width:3px; }
+.finding h3 { margin-bottom:8px; }
+.finding-body { margin:0; }
+.chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.chip { font-size:.76rem; padding:4px 11px; border-radius:980px; color:var(--muted); background:var(--surface); }
+.finding .chip { background:color-mix(in srgb, var(--surface) 70%, transparent); }
+.chip-level { color:var(--accent); }
+.chip-limit { color:var(--ink-soft); }
+.chip-warn { color:var(--neg); background:transparent; border:1px solid var(--neg); }
+.analysis-block { margin-bottom:38px; }
+.analysis-block h3 { margin-bottom:12px; }
+figure.chart { margin:26px 0 30px; }
+figure.chart figcaption { font-size:.92rem; font-weight:500; color:var(--ink-soft); margin-bottom:14px; }
+.chart-title { display:block; font-size:.95rem; font-weight:600; color:var(--ink); margin-bottom:3px; }
+.chart-caption { display:block; }
+.chart-svg { width:100%; height:auto; display:block; overflow:visible; }
+.svg-label { font-size:12.5px; fill:var(--ink-soft); font-weight:500; }
+.svg-value { font-size:12.5px; fill:var(--ink); font-weight:600; }
+.svg-value-in { font-size:12.5px; fill:#fff; font-weight:600; }
+.svg-axis { font-size:11px; fill:var(--muted); }
+.svg-note { font-size:11px; fill:var(--muted); }
+/* 图表标注压到折线/网格上时，用底色描边留出光晕，保证仍然读得清 */
+.svg-value, .svg-note { paint-order:stroke fill; stroke:var(--surface); stroke-width:3px; stroke-linejoin:round; }
+.chart-note { font-size:.8rem; color:var(--muted); margin:12px 0 0; }
+.chart-source { font-size:.76rem; color:var(--muted); margin:4px 0 0; }
+table.data { width:100%; border-collapse:collapse; margin:20px 0; font-size:.88rem; }
+table.data caption { text-align:left; font-size:.88rem; font-weight:500; color:var(--ink-soft); padding-bottom:10px; }
+table.data th, table.data td { text-align:left; padding:12px 14px 12px 0; border-bottom:1px solid var(--border); }
+table.data th { font-size:.76rem; letter-spacing:.02em; color:var(--muted); font-weight:500; }
+table.data td.num, table.data th.num { text-align:right; font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; padding-left:16px; }
+.conclusions { list-style:none; padding:0; margin:0; }
+.conclusion { padding:16px 0; border-bottom:1px solid var(--border); display:flex; flex-wrap:wrap; gap:10px; align-items:baseline; }
+.conclusion-text { flex:1 1 360px; color:var(--ink); }
+.steps-title { margin:30px 0 14px; }
+.steps { list-style:none; padding:0; margin:0; display:grid; gap:10px; }
+.step { background:var(--surface-alt); border-radius:var(--radius-sm); padding:16px 20px; }
+.step-q { display:block; color:var(--ink); }
+.step-need { display:block; margin-top:6px; font-size:.84rem; color:var(--muted); }
+.aside { font-size:.86rem; color:var(--muted); }
+.empty { color:var(--muted); font-size:.86rem; }
+footer.colophon { margin-top:56px; padding-top:20px; border-top:1px solid var(--border); font-size:.78rem; color:var(--muted); }
+@media (max-width:720px) {
+  body { padding:40px 20px 64px; }
+  .subtitle { font-size:1.06rem; }
+}
+@media print {
+  body { max-width:none; padding:0; }
+  .toc { display:none; }
+  .block, figure.chart, table.data, .finding, .kpi-grid { break-inside:avoid; }
+}
+@media (prefers-reduced-motion:reduce) { * { animation:none !important; transition:none !important; } }
+</style>
+</head>
+<body>
+
+<header class="masthead"><p class="eyebrow">决策 · 下季度老客召回名单优先级</p><h1>老客召回：104 名高价值客户超 60 天未购，名单该按天数和个人节奏定，而不是按 RFM 分层</h1><p class="subtitle">RFM 分层 + 回测 + 稳健性复核。本报告只描述历史结构与自然复购，不输出召回响应率或增量。</p><div class="meta-row"><span class="meta-item"><b>观察窗</b>2010-12-10 至 2011-12-09（回测：2011-06-10 至 2011-12-09）</span><span class="meta-item"><b>来源</b>UCI Online Retail II（CC BY 4.0），清洗口径见 prep/build_clean.py</span><span class="meta-item"><b>结论分级</b>L0–L4</span><span class="chip chip-warn">数据质量需复核：缺 CustomerID 的行占 22.24%，窗口内对应 15.02% 净额，无法进入客户分层</span></div></header>
+<nav class="toc"><a href="#s1">核心发现</a><a href="#s2">分析背景与目标</a><a href="#s3">数据概况</a><a href="#s4">深入分析</a><a href="#s5">结论与建议</a><a href="#s6">附录</a></nav>
+<main>
+<section class="block" id="s1"><h2>核心发现</h2><div class="kpi-grid"><div class="kpi"><span class="kpi-label">有 ID 购买客户</span><span class="kpi-value">4,261 人</span><span class="kpi-delta flat"> 单次购买 35.53%</span></div><div class="kpi"><span class="kpi-label">核心高价值层净额份额</span><span class="kpi-value">62.3%</span><span class="kpi-delta flat"> 749 人 · 阈值敏感 40.34%–78.86%</span></div><div class="kpi"><span class="kpi-label">高价值客户超 60 天未购</span><span class="kpi-value">104 人</span><span class="kpi-delta pos">▼ 其中沉默≥本人间隔 2 倍：61 人</span></div><div class="kpi"><span class="kpi-label">缺 ID 净额占比</span><span class="kpi-value">15.0%</span><span class="kpi-delta flat"> 无法进入召回名单</span></div></div><article class="finding"><span class="rule" style="background:#d2d2d7"></span><h3>收入集中在少数客户：前 20% 客户贡献 73.6% 净额</h3><p class="finding-body">核心高价值层 749 人（17.58%）贡献有 ID 净额 62.26%；以全部净额为分母是 52.93%。只按金额取同样人数就能占 70.92%，份额主要由 M 决定。</p><div class="chips"><span class="chip">证据 E003</span><span class="chip">证据 E004</span><span class="chip">证据 E016</span><span class="chip">证据 E019</span><span class="chip chip-level">L0 事实</span><span class="chip chip-limit">限制：阈值改动时份额在 40.34%–78.86% 之间</span></div></article><article class="finding"><span class="rule" style="background:#b3261e"></span><h3>「很久没下单」的高价值客户：超 60 天 104 人，超 90 天 46 人</h3><p class="finding-body">F、M 分数均≥4 的高价值客户共 987 人。分位口径的「流失风险层」78 人会随阈值在 9–316 人之间变化，不宜直接当名单规模。</p><div class="chips"><span class="chip">证据 E014</span><span class="chip">证据 E013</span><span class="chip">证据 E005</span><span class="chip chip-level">L0 事实</span><span class="chip chip-limit">限制：天数阈值需运营按召回产能确认</span></div></article><article class="finding"><span class="rule" style="background:#b3261e"></span><h3>回测不支持「流失风险层比中间层更容易回来」</h3><p class="finding-body">2011-06-10 打分后 183 天，流失风险层复购率 58.62%（区间 45.8%–70.37%），与中间层 48.9% 重叠；人均后续净额虽是中间层的 4.52 倍，但前 3 名客户占 51.92%。</p><div class="chips"><span class="chip">证据 E010</span><span class="chip">证据 E015</span><span class="chip chip-level">L1 比较</span><span class="chip chip-limit">限制：58 人样本，功效低</span><span class="chip chip-limit">限制：自然复购，不是营销响应</span></div></article><article class="finding"><span class="rule" style="background:#d2d2d7"></span><h3>另一种筛选口径（未经回测）：沉默期达到本人购买间隔 2 倍以上的高价值客户 61 人（超 90 天为 40 人）</h3><p class="finding-body">流失风险层 78 人里 52 人沉默期≥本人间隔 2 倍，但 60 人最后一次购买在 2011 年 8–9 月，部分可能只是等旺季。这是高置信候选，不是流失判定。</p><div class="chips"><span class="chip">证据 E013</span><span class="chip">证据 E014</span><span class="chip">证据 E017</span><span class="chip">证据 E019</span><span class="chip chip-level">L2 解释</span><span class="chip chip-limit">限制：召回增量需实验验证</span></div></article></section><section class="block" id="s2"><h2>分析背景与目标</h2><p>决策方要确定下季度老客召回名单：召回谁、先召回谁。本报告用 RFM（最近一次购买 R、购买频次 F、净额 M）描述客户价值结构，用「同一规则半年前打分、看之后半年实际表现」的回测检验分层是否有区分力，再用阈值敏感性、置信区间、季节窗口和缺失 ID 四类反例检验结论强度。数据只有交易记录，没有营销触达和响应，所以本报告不回答「召回能带来多少增量」。</p></section><section class="block" id="s3"><h2>数据概况</h2><p>原始 1,067,371 行，按 skill 自带案例同一口径清洗后 1,021,333 行，净收入 18,928,551.86，与案例公开值逐位一致。客户分析只用有 CustomerID 的行。</p><table class="data"><caption>质量门禁（da_quality：DEGRADED）</caption><thead><tr><th class="">标记</th><th class="">内容</th><th class="">处理</th></tr></thead><tbody><tr><td class="">field_missing</td><td class="">CustomerID 缺失率 22.24%；窗口内缺 ID 行 98.85% 来自英国</td><td class="">客户级结论只覆盖有 ID 部分；份额同时给出全部净额口径</td></tr><tr><td class="">date_gap</td><td class="">135 个日历日无交易，多为周六与节假日</td><td class="">R 按日历天数计，影响很小</td></tr><tr><td class="">duplicate_date</td><td class="">同一天多行</td><td class="">行级明细的正常形态，不是重复写入</td></tr><tr><td class="">metric_outlier</td><td class="">单行金额极端值</td><td class="">M 按客户净额聚合并用分位打分，极端值只影响所在客户的分数</td></tr></tbody></table><p class="aside">净额 = 购买 − 退货/取消；M 不用毛额，否则整单取消的客户（如 16446：毛额 168,472.50，净额 2.90）会被排进头部。</p><p class="aside">F 用固定切点 1/2/3–4/5–9/10+：35.53% 的客户只买过 1 次，分位切点在并列值上没有意义。</p><p class="aside">R 与 M 用五分位打分（5 最好），并列取平均名次；只对净额 &gt; 0 的客户打分。本期切点：R 分 5/4/3/2/1 = 1–13 天 / 15–32 天 / 33–68 天 / 69–170 天 / 171–365 天；M 分 5/4/3/2/1 = 1,959.38–278,778.02 / 896.67–1,957.32 / 463.91–896.00 / 237.61–463.80 / 2.90–237.07。</p><p class="aside">分层规则（high = 分数≥4，low = 分数≤2，按顺序匹配）：核心高价值 = R、F、M 均 high；高价值流失风险 = R low 且 F、M high；近期新客/低频 = R high 且 F low；沉睡低价值 = R、F 均 low；高消费中活跃 = 其余中 M high；其余为中间层。</p><p class="aside">回测：在 2011-06-10 用同一规则、同样 365 天窗口（2010-06-10..2011-06-09）重新打分，看 2011-06-10..2011-12-09 是否有购买发票及净额。</p><p class="aside">两个 sheet 在 2010-12-01..09 完全重叠（同一批行存了两份），清洗中的 34,039 行完全重复里有 22,245 行是这份重叠，真正的重复记录 11,794 行。</p></section><section class="block" id="s4"><h2>深入分析</h2><div class="analysis-block"><h3>结构：六成净额来自不到两成客户</h3><p>各层对有 ID 净额的贡献。核心高价值与高消费中活跃两层合计贡献八成以上；人数最多的沉睡低价值层贡献不到一成。</p><figure class="chart"><figcaption><span class="chart-caption">各分层占有 ID 净额的份额（%）</span></figcaption><svg class="chart-svg" viewBox="0 0 720 262" role="img" aria-label="各分层占有 ID 净额的份额（%）"><text x="0" y="25" class="svg-label">核心高价值（749 人）</text><rect x="150" y="10" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="10" width="478.0" height="20" rx="6" fill="#0071e3" opacity="1.00"/><text x="720" y="25" text-anchor="end" class="svg-value">62.26%</text><text x="0" y="67" class="svg-label">高价值流失风险（78 人）</text><rect x="150" y="52" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="52" width="19.9" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="67" text-anchor="end" class="svg-value">2.59%</text><text x="0" y="109" class="svg-label">高消费中活跃（683 人）</text><rect x="150" y="94" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="94" width="147.6" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="109" text-anchor="end" class="svg-value">19.22%</text><text x="0" y="151" class="svg-label">近期新客/低频（519 人）</text><rect x="150" y="136" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="136" width="24.1" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="151" text-anchor="end" class="svg-value">3.14%</text><text x="0" y="193" class="svg-label">中间层（904 人）</text><rect x="150" y="178" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="178" width="42.1" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="193" text-anchor="end" class="svg-value">5.49%</text><text x="0" y="235" class="svg-label">沉睡低价值（1312 人）</text><rect x="150" y="220" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="220" width="56.2" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="235" text-anchor="end" class="svg-value">7.32%</text></svg><p class="chart-note">窗口 2010-12-10..2011-12-09；分母 7,965,817.00；净额非正 16 人未列出。</p><p class="chart-source">来源：E004–E009</p></figure></div><div class="analysis-block"><h3>阈值敏感：同一份数据，核心层份额可以是四成也可以是八成</h3><p>每次只改一个参数。结论数字对阈值很敏感，所以报告里的「62.26%」「78 人」都只在本口径下成立。</p><figure class="chart"><figcaption><span class="chart-caption">核心高价值层净额份额随高分阈值变化（%）</span></figcaption><svg class="chart-svg" viewBox="0 0 720 220" role="img" aria-label="核心高价值层净额份额随高分阈值变化（%）"><text x="0" y="25" class="svg-label">原口径 high≥4 low≤2</text><rect x="150" y="10" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="10" width="377.4" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="25" text-anchor="end" class="svg-value">62.26% · 流失风险 78 人</text><text x="0" y="67" class="svg-label">high≥3</text><rect x="150" y="52" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="52" width="478.0" height="20" rx="6" fill="#0071e3" opacity="1.00"/><text x="720" y="67" text-anchor="end" class="svg-value">78.86% · 流失风险 316 人</text><text x="0" y="109" class="svg-label">high=5</text><rect x="150" y="94" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="94" width="244.5" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="109" text-anchor="end" class="svg-value">40.34% · 流失风险 9 人</text><text x="0" y="151" class="svg-label">low≤1</text><rect x="150" y="136" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="136" width="377.4" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="151" text-anchor="end" class="svg-value">62.26% · 流失风险 11 人</text><text x="0" y="193" class="svg-label">low≤3</text><rect x="150" y="178" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="178" width="377.4" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="193" text-anchor="end" class="svg-value">62.26% · 流失风险 238 人</text></svg><p class="chart-note">low 阈值只影响流失风险层人数，不影响核心层份额。</p><p class="chart-source">来源：E013</p></figure></div><div class="analysis-block"><h3>回测：分层能区分「会回来的人」吗</h3><p>2011-06-10 用同一规则打分，看之后 183 天是否再购买。核心层与沉睡层区分明显；流失风险层区间很宽，与中间层、近期新客不可区分；把结果窗口截到旺季前，它的排名从第 3 掉到第 5。</p><figure class="chart"><figcaption><span class="chart-caption">各层回测复购率（%）</span></figcaption><svg class="chart-svg" viewBox="0 0 720 262" role="img" aria-label="各层回测复购率（%）"><text x="0" y="25" class="svg-label">核心高价值</text><rect x="150" y="10" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="10" width="478.0" height="20" rx="6" fill="#0071e3" opacity="1.00"/><text x="720" y="25" text-anchor="end" class="svg-value">94.7%（92.92–96.06）</text><text x="0" y="67" class="svg-label">高价值流失风险</text><rect x="150" y="52" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="52" width="295.9" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="67" text-anchor="end" class="svg-value">58.62%（45.8–70.37）</text><text x="0" y="109" class="svg-label">高消费中活跃</text><rect x="150" y="94" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="94" width="369.8" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="109" text-anchor="end" class="svg-value">73.26%（69.83–76.43）</text><text x="0" y="151" class="svg-label">近期新客/低频</text><rect x="150" y="136" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="136" width="284.7" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="151" text-anchor="end" class="svg-value">56.4%（52.02–60.68）</text><text x="0" y="193" class="svg-label">中间层</text><rect x="150" y="178" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="178" width="246.8" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="193" text-anchor="end" class="svg-value">48.9%（45.58–52.23）</text><text x="0" y="235" class="svg-label">沉睡低价值</text><rect x="150" y="220" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="220" width="174.2" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="235" text-anchor="end" class="svg-value">34.51%（32.08–37.03）</text></svg><p class="chart-note">括号内为 Wilson 95% 区间；自然复购，不是营销响应率。</p><p class="chart-source">来源：E010 / E015</p></figure><table class="data"><caption>回测明细</caption><thead><tr><th class="">分层</th><th class="num">人数</th><th class="">183 天复购率</th><th class="">旺季前 91 天复购率</th></tr></thead><tbody><tr><td class="">核心高价值</td><td class="num">793</td><td class="">94.7%</td><td class="">80.08%</td></tr><tr><td class="">高价值流失风险</td><td class="num">58</td><td class="">58.62%</td><td class="">25.86%</td></tr><tr><td class="">高消费中活跃</td><td class="num">688</td><td class="">73.26%</td><td class="">46.51%</td></tr><tr><td class="">近期新客/低频</td><td class="num">500</td><td class="">56.4%</td><td class="">34.2%</td></tr><tr><td class="">中间层</td><td class="num">863</td><td class="">48.9%</td><td class="">27.35%</td></tr><tr><td class="">沉睡低价值</td><td class="num">1,411</td><td class="">34.51%</td><td class="">13.61%</td></tr></tbody></table></div><div class="analysis-block"><h3>名单怎么定：固定天数 + 个人节奏</h3><p>与其用分位切点，不如先定天数，再看沉默期是否明显长于这个客户自己的购买间隔。高价值客户里，超过 60 天未购且沉默期≥本人间隔 2 倍的有 61 人。另有 160 名高价值客户最近一次购买在 33–68 天前，分位规则把他们归进了高消费中活跃层，下一轮可能进入名单。</p><figure class="chart"><figcaption><span class="chart-caption">高价值客户（F、M 分≥4，共 987 人）中的候选人数</span></figcaption><svg class="chart-svg" viewBox="0 0 720 220" role="img" aria-label="高价值客户（F、M 分≥4，共 987 人）中的候选人数"><text x="0" y="25" class="svg-label">超 60 天未购</text><rect x="150" y="10" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="10" width="478.0" height="20" rx="6" fill="#0071e3" opacity="1.00"/><text x="720" y="25" text-anchor="end" class="svg-value">104</text><text x="0" y="67" class="svg-label">超 60 天且沉默≥本人间隔 2 倍</text><rect x="150" y="52" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="52" width="280.4" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="67" text-anchor="end" class="svg-value">61</text><text x="0" y="109" class="svg-label">超 90 天未购</text><rect x="150" y="94" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="94" width="211.4" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="109" text-anchor="end" class="svg-value">46</text><text x="0" y="151" class="svg-label">超 90 天且沉默≥本人间隔 2 倍</text><rect x="150" y="136" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="136" width="183.8" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="151" text-anchor="end" class="svg-value">40</text><text x="0" y="193" class="svg-label">超 120 天未购</text><rect x="150" y="178" width="478" height="20" rx="6" fill="#f5f5f7"/><rect x="150.0" y="178" width="114.9" height="20" rx="6" fill="#0071e3" opacity="0.62"/><text x="720" y="193" text-anchor="end" class="svg-value">25</text></svg><p class="chart-note">本人间隔 = 2009-12-01 起全部购买日期之间间隔的中位数。</p><p class="chart-source">来源：E014 / E019</p></figure></div></section><section class="block" id="s5"><h2>结论与建议</h2><ul class="conclusions"><li class="conclusion"><span class="conclusion-text">召回对象优先从高价值客户（F、M 分≥4）中选，按「超过 N 天未购 + 沉默期≥本人间隔 2 倍」筛选；N 取 60 天时 61 人，取 90 天时 40 人，由召回产能决定。</span><span class="chip">证据 E014</span><span class="chip">证据 E019</span></li><li class="conclusion"><span class="conclusion-text">不直接使用分位口径的 78 人流失风险层：人数随阈值在 9–316 之间变化，回测复购率与中间层不可区分。</span><span class="chip">证据 E013</span><span class="chip">证据 E015</span></li><li class="conclusion"><span class="conclusion-text">召回增量不能从本数据推出。104 人对半分只能检出 26.14 个百分点的差异；要检出 10 个百分点需每组 389 人，应把 holdout 放在更大的候选池（例如全部超 60 天未购的有价值客户）或跨季度累计。</span><span class="chip">证据 E020</span></li></ul><h3 class="steps-title">后续分析建议</h3><ul class="steps"><li class="step"><span class="step-q">召回到底能带来多少增量复购？</span><span class="step-need">需要：召回触达记录 + 随机 holdout（每组≥389 人，90 天复购率与净额为验收指标）</span></li><li class="step"><span class="step-q">沉默的高价值客户是流失了还是在等旺季？</span><span class="step-need">需要：2012 年 1–3 月交易数据，看 2011 年 8–9 月最后购买的 60 人是否在旺季后回归</span></li><li class="step"><span class="step-q">缺 CustomerID 的 15.02% 净额是什么渠道？</span><span class="step-need">需要：订单来源 / 渠道字段；若是门店或第三方平台，需要单独的客户识别方式</span></li></ul></section><section class="block" id="s6"><h2>附录</h2><table class="data"><caption>证据索引</caption><thead><tr><th class="">证据</th><th class="">类型</th><th class="">范围</th></tr></thead><tbody><tr><td class="">E001</td><td class="">profile</td><td class="">有 CustomerID 的购买客户 / 2010-12-10..2011-12-09</td></tr><tr><td class="">E002</td><td class="">cleaning</td><td class="">全量 2009-12-01..2011-12-09</td></tr><tr><td class="">E003</td><td class="">concentration</td><td class="">按窗口净额排序的客户 / 2010-12-10..2011-12-09</td></tr><tr><td class="">E004</td><td class="">segment</td><td class="">核心高价值 / 2010-12-10..2011-12-09</td></tr><tr><td class="">E005</td><td class="">segment</td><td class="">高价值流失风险 / 2010-12-10..2011-12-09</td></tr><tr><td class="">E006</td><td class="">segment</td><td class="">高消费中活跃 / 2010-12-10..2011-12-09</td></tr><tr><td class="">E007</td><td class="">segment</td><td class="">沉睡低价值 / 2010-12-10..2011-12-09</td></tr><tr><td class="">E008</td><td class="">segment</td><td class="">近期新客/低频 / 2010-12-10..2011-12-09</td></tr><tr><td class="">E009</td><td class="">segment</td><td class="">中间层 / 2010-12-10..2011-12-09</td></tr><tr><td class="">E010</td><td class="">backtest</td><td class="">同规则在 2011-06-10 打分，观察 2011-06-10..2011-12-09</td></tr><tr><td class="">E011</td><td class="">gross_vs_net</td><td class="">按窗口毛额排名前 10 中净额 &lt; 毛额 1% 的客户</td></tr><tr><td class="">E012</td><td class="">operator_crosscheck</td><td class="">skill rfm 算子（已修复方向 bug），输入为购买发票级毛额</td></tr><tr><td class="">E013</td><td class="">sensitivity</td><td class="">只改一个阈值，其余保持原口径</td></tr><tr><td class="">E014</td><td class="">fixed_day_threshold</td><td class="">F 分≥4 且 M 分≥4 的高价值客户，按距上次购买天数</td></tr><tr><td class="">E015</td><td class="">backtest_noise</td><td class="">2011-06-10 打分回测；旺季前窗口截至 2011-09-09</td></tr><tr><td class="">E016</td><td class="">missing_id_bias</td><td class="">窗口 2010-12-10..2011-12-09 全部行</td></tr><tr><td class="">E017</td><td class="">own_rhythm</td><td class="">高价值流失风险层：R / 本人历史购买间隔中位数（2009-12-01 起全量历史）</td></tr><tr><td class="">E018</td><td class="">country_mix</td><td class="">客户主要下单国家为英国的占比 / 2010-12-10..2011-12-09</td></tr><tr><td class="">E019</td><td class="">reviewer_requested</td><td class="">Reviewer 要求补入证据包的数字 / 2010-12-10..2011-12-09</td></tr><tr><td class="">E020</td><td class="">power_mde</td><td class="">召回 holdout 实验功效，基线复购率 45%，α=0.05，功效 80%，双侧</td></tr></tbody></table><p class="aside">独立角色分析（mode: native_subagents）：Locator / Mechanism / Falsifier 由 Claude Code 并行派发的独立 subagent 完成，彼此不读对方工件；Reviewer 最后执行。工件：agents/locator.json、agents/mechanism.json、agents/falsifier.json、agents/reviewer.json、agents/execution.json。</p><p class="aside">Reviewer 对 14 条草稿结论给出 6 pass / 8 downgrade / 0 block，全部接受：C013 由 L2 降为 L1，召回建议由 L3 降为 L2。</p><p class="aside">Falsifier 发现 4 名净额为浮点残差（约 1e-14）的客户被当作正值打分，已修正为「净额非正」。</p><p class="aside">skill 自带 rfm 算子复核（E012）：客户数 4,261 一致。复核中发现该算子打分方向与并列处理有缺陷（最近、最频繁、金额最高的客户被标为 dormant），已修复并提交补丁（contrib/fix-rfm-score-direction.patch）；算子用毛额与≥3 阈值，分层不与本报告直接比较。</p><p class="aside">da_verify：15 条结论全部可溯源；repeated_window_checks 警告——多条结论引用同一时间窗，单条结论的显著性不能叠加。</p></section>
+</main>
+<footer class="colophon">本报告由 data-analysis skill 生成；数字来自离线证据 JSON，可逐条复算。</footer>
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  var nodes = [].slice.call(
+    document.querySelectorAll('figure.chart, .finding, .analysis-block, .kpi-grid')
+  );
+  var showAll = function () {
+    nodes.forEach(function (node) { node.classList.add('in'); });
+  };
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('in');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -4% 0px' });
+  nodes.forEach(function (node) { node.classList.add('reveal'); observer.observe(node); });
+  // 兜底：打印、截图、后台标签页不会触发布局观察，1.5s 后强制全部显示。
+  setTimeout(showAll, 1500);
+  window.addEventListener('beforeprint', showAll);
+})();
+</script>
+<style>
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .55s cubic-bezier(.4,0,.2,1),transform .55s cubic-bezier(.4,0,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media print{.reveal{opacity:1 !important;transform:none !important}}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important}}
+</style>
+</body>
+</html>

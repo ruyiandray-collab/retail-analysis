@@ -1,0 +1,138 @@
+{
+  "reviewer_requested": {
+    "m_only_top_749_share_of_net_revenue_percent": 70.92,
+    "mid_future_net_median": 0.0,
+    "at_risk_future_net_mean_boot_ci95": [
+      478.09,
+      1686.53
+    ],
+    "at_risk_last_purchase_aug_sep_2011": 60,
+    "hv_over_60_days_and_ge_2x_own_gap": 61,
+    "hv_over_90_days_and_ge_2x_own_gap": 40,
+    "high_spend_segment_hv_r_score_3": 160
+  },
+  "threshold_sensitivity": [
+    {
+      "setting": "原口径 high≥4 low≤2",
+      "core_customers": 749,
+      "core_share_of_net_revenue_percent": 62.26,
+      "at_risk_customers": 78
+    },
+    {
+      "setting": "high≥3",
+      "core_customers": 1493,
+      "core_share_of_net_revenue_percent": 78.86,
+      "at_risk_customers": 316
+    },
+    {
+      "setting": "high=5",
+      "core_customers": 229,
+      "core_share_of_net_revenue_percent": 40.34,
+      "at_risk_customers": 9
+    },
+    {
+      "setting": "low≤1",
+      "core_customers": 749,
+      "core_share_of_net_revenue_percent": 62.26,
+      "at_risk_customers": 11
+    },
+    {
+      "setting": "low≤3",
+      "core_customers": 749,
+      "core_share_of_net_revenue_percent": 62.26,
+      "at_risk_customers": 238
+    }
+  ],
+  "own_rhythm": {
+    "customers": 78,
+    "ratio_median": 3.19,
+    "silence_ge_2x_own_gap": 52,
+    "silence_ge_3x_own_gap": 41,
+    "silence_lt_1_5x_own_gap": 14
+  },
+  "country_mix": {
+    "uk_share_core_percent": 90.52,
+    "uk_share_all_scored_percent": 90.44
+  },
+  "fixed_day_at_risk": {
+    "over_60_days": 104,
+    "over_90_days": 46,
+    "over_120_days": 25,
+    "high_value_customers": 987
+  },
+  "backtest_noise": [
+    {
+      "segment": "核心高价值",
+      "customers": 793,
+      "repurchase_rate_percent": 94.7,
+      "repurchase_ci95_percent": [
+        92.92,
+        96.06
+      ],
+      "pre_peak_repurchase_rate_percent": 80.08
+    },
+    {
+      "segment": "高价值流失风险",
+      "customers": 58,
+      "repurchase_rate_percent": 58.62,
+      "repurchase_ci95_percent": [
+        45.8,
+        70.37
+      ],
+      "pre_peak_repurchase_rate_percent": 25.86
+    },
+    {
+      "segment": "高消费中活跃",
+      "customers": 688,
+      "repurchase_rate_percent": 73.26,
+      "repurchase_ci95_percent": [
+        69.83,
+        76.43
+      ],
+      "pre_peak_repurchase_rate_percent": 46.51
+    },
+    {
+      "segment": "近期新客/低频",
+      "customers": 500,
+      "repurchase_rate_percent": 56.4,
+      "repurchase_ci95_percent": [
+        52.02,
+        60.68
+      ],
+      "pre_peak_repurchase_rate_percent": 34.2
+    },
+    {
+      "segment": "中间层",
+      "customers": 863,
+      "repurchase_rate_percent": 48.9,
+      "repurchase_ci95_percent": [
+        45.58,
+        52.23
+      ],
+      "pre_peak_repurchase_rate_percent": 27.35
+    },
+    {
+      "segment": "沉睡低价值",
+      "customers": 1411,
+      "repurchase_rate_percent": 34.51,
+      "repurchase_ci95_percent": [
+        32.08,
+        37.03
+      ],
+      "pre_peak_repurchase_rate_percent": 13.61
+    }
+  ],
+  "at_risk_backtest_detail": {
+    "future_net_median": 355.23,
+    "top3_share_of_segment_future_net_percent": 51.92,
+    "pre_peak_rank": 5,
+    "full_window_rank": 3
+  },
+  "missing_customer_id": {
+    "window_net_all_rows": 9370308.89,
+    "missing_id_net": 1407046.5,
+    "missing_id_share_of_window_net_percent": 15.02,
+    "missing_id_uk_row_share_percent": 98.85,
+    "core_share_of_all_net_percent": 52.93
+  }
+}

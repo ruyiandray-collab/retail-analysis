@@ -1,0 +1,17 @@
+{
+  "mode": "native_subagents",
+  "native_tool_available": true,
+  "requested_real_subagents": true,
+  "runtime": "Claude Code Agent tool（general-purpose subagent，后台并行）",
+  "spawn_attempts": [
+    {"role": "locator", "agent_id": "a7fba1edb0b00242d", "status": "ok", "error": null},
+    {"role": "mechanism", "agent_id": "a851d0d6ae3b456f8", "status": "ok", "error": null},
+    {"role": "falsifier", "agent_id": "a1aa509ae1efadf99", "status": "ok", "error": null},
+    {"role": "reviewer", "agent_id": "a14f448531a8a5cc7", "status": "ok", "error": null},
+    {"role": "reviewer_round2", "agent_id": "a1ba10ad409d98a21", "status": "ok", "error": null}
+  ],
+  "dispatch_order": "locator / mechanism / falsifier 同一轮并行派发，彼此不读对方工件；三者完成后派发 reviewer；reviewer 给出 block 后主分析师改写，再派发 reviewer_round2 复核",
+  "fallback_reason": null,
+  "reviewer_round1": {"verdicts": "4 pass / 6 downgrade / 1 block", "blocked": ["C011"]},
+  "reviewer_round2": {"verdicts": "9 pass / 5 downgrade / 0 block", "file": "agents/reviewer_round2.json"}
+}

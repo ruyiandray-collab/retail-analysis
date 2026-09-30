@@ -1,0 +1,121 @@
+{
+  "op": "rfm",
+  "id_field": "CustomerID",
+  "reference_date": "2011-12-10",
+  "bins": 5,
+  "entity_count": 4261,
+  "observation_window": {
+    "start": "2010-12-10",
+    "end": "2011-12-09",
+    "days": 364.0
+  },
+  "score_cutoffs": {
+    "recency_days_quantiles": [
+      1.0,
+      13.0,
+      32.0,
+      69.0,
+      171.0,
+      365.0
+    ],
+    "frequency_quantiles": [
+      1.0,
+      1.0,
+      2.0,
+      3.0,
+      5.0,
+      190.0
+    ],
+    "monetary_quantiles": [
+      3.75,
+      241.06,
+      475.8,
+      915.1300000000006,
+      1991.01,
+      279138.02
+    ]
+  },
+  "segments": [
+    {
+      "segment": "high_value_active",
+      "size": 1750,
+      "share_of_entities": 0.4107017132128608,
+      "share_of_monetary": 0.8130812181962445,
+      "median_recency_days": 18.0,
+      "median_frequency": 5.0,
+      "median_monetary": 1692.65,
+      "mean_monetary": 3915.970948571429,
+      "below_min_sample": false
+    },
+    {
+      "segment": "high_spend_moderate_activity",
+      "size": 482,
+      "share_of_entities": 0.1131189861534851,
+      "share_of_monetary": 0.07910977427370276,
+      "median_recency_days": 96.5,
+      "median_frequency": 3.0,
+      "median_monetary": 980.405,
+      "mean_monetary": 1383.3328423236514,
+      "below_min_sample": false
+    },
+    {
+      "segment": "dormant",
+      "size": 623,
+      "share_of_entities": 0.14620980990377846,
+      "share_of_monetary": 0.03369916339111923,
+      "median_recency_days": 264.0,
+      "median_frequency": 1.0,
+      "median_monetary": 228.8,
+      "mean_monetary": 455.9053130016052,
+      "below_min_sample": false
+    },
+    {
+      "segment": "at_risk_high_value",
+      "size": 131,
+      "share_of_entities": 0.030743956817648438,
+      "share_of_monetary": 0.026363673647887425,
+      "median_recency_days": 213.0,
+      "median_frequency": 2.0,
+      "median_monetary": 816.73,
+      "mean_monetary": 1696.2045038167937,
+      "below_min_sample": false
+    },
+    {
+      "segment": "mid_tier",
+      "size": 725,
+      "share_of_entities": 0.17014785261675663,
+      "share_of_monetary": 0.02419578584768238,
+      "median_recency_days": 86.0,
+      "median_frequency": 2.0,
+      "median_monetary": 293.0,
+      "mean_monetary": 281.2841793103448,
+      "below_min_sample": false
+    },
+    {
+      "segment": "new_or_low_frequency",
+      "size": 550,
+      "share_of_entities": 0.12907768129547054,
+      "share_of_monetary": 0.023550384643363835,
+      "median_recency_days": 36.0,
+      "median_frequency": 1.0,
+      "median_monetary": 256.35,
+      "mean_monetary": 360.8933636363636,
+      "below_min_sample": false
+    }
+  ],
+  "monetary_total": 8428369.77,
+  "limitations": [
+    "RFM 只使用交易历史，不含动作前行为特征；它描述价值结构，不预测对具体动作的响应。",
+    "分位数分层是相对的：整体活跃度下降时，各层规模不变但绝对水平已经改变，跨期比较需要固定切点。",
+    "金额已按实体加总，未做退款、优惠和税的口径确认；口径未确认前不得写成利润贡献。"
+  ],
+  "sheet": "purchase_invoices",
+  "config": {
+    "id_field": "CustomerID",
+    "date_field": "Date",
+    "value_field": "Amount",
+    "reference_date": "2011-12-10",
+    "bins": 5,
+    "min_segment_size": 30
+  }
+}

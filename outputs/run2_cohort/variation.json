@@ -1,0 +1,4 @@
+{"run": "run2_cohort",
+ "previous_signature": {"perspective": "decision", "structure": "pyramid", "chart_grammar": "distribution", "density": "card-based", "advice_form": "决策树 + 实验设计", "theme": "apple-graphite", "style": "apple"},
+ "signature": {"perspective": "falsification", "structure": "investigation", "chart_grammar": "baseline-overlay + matrix", "density": "dense-first", "advice_form": "条件式规则 + 反证清单", "theme": "slate-amber", "style": "editorial"},
+ "diff_from_previous": "主视角从「决策」换成「反证」：先立结论再用五类反证逐个削弱；结构从结论金字塔换成「现象→反证→留下什么」；图表从分布条形换成基线叠加折线 + 第 N 月留存矩阵；主题从 apple-graphite 换成 slate-amber，版式从 apple 大留白换成 editorial 紧凑；建议从名单筛选规则换成成本比阈值的条件式规则。"}

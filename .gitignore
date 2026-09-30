@@ -1,0 +1,12 @@
+# 原始数据与清洗后明细体积大（~90MB+），不入库；用 prep/build_clean.py 从 UCI 原始文件复现
+data/*.csv
+data/*.xlsx
+data/*.zip
+# 分析中间产物（客户级明细、发票级输入），可由 analysis.py 复现
+outputs/*/customer_*.csv
+outputs/*/purchase_*.csv
+__pycache__/
+*.pyc
+
+# skill 作者的案例报告（本地复现用，不属于本项目）
+case_study_report.html

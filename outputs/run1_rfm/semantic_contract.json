@@ -1,0 +1,21 @@
+{
+  "decision": "下个季度老客召回名单的优先级（召回谁、先召回谁）",
+  "main_table": "clean_lines",
+  "date_field": "Date",
+  "metric_fields": {"net_amount": "Amount"},
+  "grain": "发票行；RFM 在客户级聚合",
+  "entity": {"field": "CustomerID", "source": "confirmed", "note": "22.24% 的行缺 CustomerID，客户级分析只覆盖有 ID 的行"},
+  "time_window": {"reference_date": "2011-12-10", "observation": "2010-12-10..2011-12-09", "source": "assumed"},
+  "definitions": {
+    "R": "reference_date − 最近一张购买发票日期（天）",
+    "F": "窗口内购买发票张数（不全是退货行的发票）",
+    "M": "窗口内净额 = 购买 − 退货/取消；毛额会被整单取消误导",
+    "scores": "R/M 五分位；F 固定切点 1/2/3–4/5–9/10+（F=1 并列 35%，分位切点任意）",
+    "segments": "high=分数≥4，low=分数≤2；规则见 analysis.py segment()"
+  },
+  "baseline": "回测：同规则在 2011-06-10 打分，看其后 183 天实际复购率与净额",
+  "importance_threshold": "分层样本 ≥ 30",
+  "assumptions": ["缺 ID 的行无法归属客户，不做推断", "Amount 为 GBP，未扣税与运费"],
+  "stop_conditions": ["不输出营销响应率或召回效果：无干预数据"],
+  "quality": {"outlier_z": 4, "warning_z": 3, "delay_exclusion_minutes": 120}
+}

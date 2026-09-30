@@ -1,0 +1,292 @@
+{
+  "schema_version": "1.0",
+  "file": {
+    "path": "data/clean_lines.csv",
+    "name": "clean_lines.csv",
+    "suffix": ".csv",
+    "size_bytes": 86815275,
+    "sha256": "630f1af66139845885553679aa672517f8857d1f6c1d4e16c1b60ac31954e282"
+  },
+  "main_table": "clean_lines",
+  "sheets": [
+    {
+      "name": "clean_lines",
+      "rows": 1021333,
+      "columns": 10,
+      "header_row_zero_based": 0,
+      "header_status": "detected",
+      "date_field": "InvoiceDate",
+      "roles": {
+        "date": [
+          "InvoiceDate",
+          "Date"
+        ]
+      },
+      "fields": [
+        {
+          "name": "Invoice",
+          "dtype": "str",
+          "missing_count": 0,
+          "missing_rate": 0.0,
+          "unique_count": 46922,
+          "sample_values": [
+            "489434",
+            "489434",
+            "489434",
+            "489434",
+            "489434"
+          ],
+          "is_numeric": true,
+          "is_date_candidate": false,
+          "numeric": {
+            "min": 489434.0,
+            "max": 581587.0,
+            "median": 538113.0,
+            "mad": 23402.0,
+            "mean": 537683.8074860128,
+            "std": 26943.070780385482,
+            "n": 1003418
+          }
+        },
+        {
+          "name": "StockCode",
+          "dtype": "str",
+          "missing_count": 0,
+          "missing_rate": 0.0,
+          "unique_count": 4917,
+          "sample_values": [
+            "85048",
+            "79323P",
+            "79323W",
+            "22041",
+            "21232"
+          ],
+          "is_numeric": true,
+          "is_date_candidate": false,
+          "numeric": {
+            "min": 10002.0,
+            "max": 90208.0,
+            "median": 22367.0,
+            "mad": 602.0,
+            "mean": 28323.46131542805,
+            "std": 17930.59869163211,
+            "n": 897761
+          }
+        },
+        {
+          "name": "Quantity",
+          "dtype": "int64",
+          "missing_count": 0,
+          "missing_rate": 0.0,
+          "unique_count": 724,
+          "sample_values": [
+            12,
+            12,
+            12,
+            48,
+            24
+          ],
+          "is_numeric": true,
+          "is_date_candidate": true,
+          "numeric": {
+            "min": -80995.0,
+            "max": 80995.0,
+            "median": 3.0,
+            "mad": 2.0,
+            "mean": 10.496163347311798,
+            "std": 169.07320654350409,
+            "n": 1021333
+          },
+          "date_range": {
+            "min": "1969-12-31T23:59:59.999919005",
+            "max": "1970-01-01T00:00:00.000080995",
+            "unique_days": 2
+          }
+        },
+        {
+          "name": "Price",
+          "dtype": "float64",
+          "missing_count": 0,
+          "missing_rate": 0.0,
+          "unique_count": 717,
+          "sample_values": [
+            6.95,
+            6.75,
+            6.75,
+            2.1,
+            1.25
+          ],
+          "is_numeric": true,
+          "is_date_candidate": true,
+          "numeric": {
+            "min": 0.03,
+            "max": 1157.15,
+            "median": 2.1,
+            "mad": 1.25,
+            "mean": 3.363514152582948,
+            "std": 4.87797907416256,
+            "n": 1021333
+          },
+          "date_range": {
+            "min": "1970-01-01T00:00:00",
+            "max": "1970-01-01T00:00:00.000001157",
+            "unique_days": 1
+          }
+        },
+        {
+          "name": "Amount",
+          "dtype": "float64",
+          "missing_count": 0,
+          "missing_rate": 0.0,
+          "unique_count": 6689,
+          "sample_values": [
+            83.4,
+            81.0,
+            81.0,
+            100.8,
+            30.0
+          ],
+          "is_numeric": true,
+          "is_date_candidate": true,
+          "numeric": {
+            "min": -168469.6,
+            "max": 168469.6,
+            "median": 9.95,
+            "mad": 6.6499999999999995,
+            "mean": 18.533183457305306,
+            "std": 270.59713233145675,
+            "n": 1021333
+          },
+          "date_range": {
+            "min": "1969-12-31T23:59:59.999831531",
+            "max": "1970-01-01T00:00:00.000168469",
+            "unique_days": 2
+          }
+        },
+        {
+          "name": "IsReturn",
+          "dtype": "bool",
+          "missing_count": 0,
+          "missing_rate": 0.0,
+          "unique_count": 2,
+          "sample_values": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "is_numeric": true,
+          "is_date_candidate": false,
+          "numeric": {
+            "min": 0.0,
+            "max": 1.0,
+            "median": 0.0,
+            "mad": 0.0,
+            "mean": 0.017540802069452372,
+            "std": 0.13127505172498027,
+            "n": 1021333
+          }
+        },
+        {
+          "name": "InvoiceDate",
+          "dtype": "str",
+          "missing_count": 0,
+          "missing_rate": 0.0,
+          "unique_count": 43144,
+          "sample_values": [
+            "2009-12-01 07:45:00",
+            "2009-12-01 07:45:00",
+            "2009-12-01 07:45:00",
+            "2009-12-01 07:45:00",
+            "2009-12-01 07:45:00"
+          ],
+          "is_numeric": false,
+          "is_date_candidate": true,
+          "date_range": {
+            "min": "2009-12-01T07:45:00",
+            "max": "2011-12-09T12:50:00",
+            "unique_days": 604
+          }
+        },
+        {
+          "name": "Date",
+          "dtype": "str",
+          "missing_count": 0,
+          "missing_rate": 0.0,
+          "unique_count": 604,
+          "sample_values": [
+            "2009-12-01",
+            "2009-12-01",
+            "2009-12-01",
+            "2009-12-01",
+            "2009-12-01"
+          ],
+          "is_numeric": false,
+          "is_date_candidate": true,
+          "date_range": {
+            "min": "2009-12-01T00:00:00",
+            "max": "2011-12-09T00:00:00",
+            "unique_days": 604
+          }
+        },
+        {
+          "name": "CustomerID",
+          "dtype": "float64",
+          "missing_count": 227172,
+          "missing_rate": 0.2224269655440488,
+          "unique_count": 5875,
+          "sample_values": [
+            13085.0,
+            13085.0,
+            13085.0,
+            13085.0,
+            13085.0
+          ],
+          "is_numeric": true,
+          "is_date_candidate": false,
+          "numeric": {
+            "min": 12346.0,
+            "max": 18287.0,
+            "median": 15244.0,
+            "mad": 1466.0,
+            "mean": 15319.72917204446,
+            "std": 1693.6146796476694,
+            "n": 794161
+          }
+        },
+        {
+          "name": "Country",
+          "dtype": "str",
+          "missing_count": 0,
+          "missing_rate": 0.0,
+          "unique_count": 43,
+          "sample_values": [
+            "United Kingdom",
+            "United Kingdom",
+            "United Kingdom",
+            "United Kingdom",
+            "United Kingdom"
+          ],
+          "is_numeric": false,
+          "is_date_candidate": false
+        }
+      ],
+      "duplicate_rows": 0,
+      "source_ref": {
+        "sheet": "clean_lines",
+        "header_row": 1
+      },
+      "date_range": {
+        "min": "2009-12-01T00:00:00",
+        "max": "2011-12-09T00:00:00",
+        "unique_days": 604,
+        "missing_days_in_span": 135
+      }
+    }
+  ],
+  "notes": [
+    "字段角色是基于名称和类型的候选识别，必须在语义合同中确认。",
+    "画像不包含业务判断，所有异常结论需要进入后续计算步骤。"
+  ]
+}

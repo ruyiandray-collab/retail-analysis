@@ -1,0 +1,20 @@
+{
+  "decision": "下一年获客预算在各季度如何分配（按新客 12 个月价值，而不只按获客量）",
+  "main_table": "clean_lines",
+  "date_field": "Date",
+  "metric_fields": {"net_amount": "Amount"},
+  "grain": "发票行；同期群在客户级",
+  "entity": {"field": "CustomerID", "source": "confirmed", "note": "22.24% 的行缺 CustomerID；缺 ID 的客户无法进入同期群"},
+  "definitions": {
+    "cohort": "客户首次购买发票所在月份",
+    "rep365": "首购日后 365 天内（不含首购当天）再有购买发票",
+    "main_pool": "2010-03..2010-12 首购且首购日 ≤ 2010-12-09（完整 365 天观察）",
+    "xmas_item": "StockCode 任一描述含 CHRISTMAS/XMAS/ADVENT"
+  },
+  "time_window": {"data": "2009-12-01..2011-12-09", "source": "confirmed"},
+  "baseline": "Q2（2010-04..06）首购客户的 365 天复购率",
+  "importance_threshold": "同期群 ≥ 30 人；差异需 95% 置信区间不含 0",
+  "assumptions": ["首次出现在数据中的购买 = 首购（受左截断影响，见 left_truncation）", "只有 2010 一年的同期群有完整 365 天观察，季节与年度趋势无法完全分离"],
+  "stop_conditions": ["不输出获客渠道或营销投入的因果效果：无渠道/投放数据"],
+  "quality": {"outlier_z": 4, "warning_z": 3, "delay_exclusion_minutes": 120}
+}

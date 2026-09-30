@@ -1,0 +1,1567 @@
+{
+  "op": "cohort_retention",
+  "id_field": "CustomerID",
+  "date_field": "Date",
+  "period": "month",
+  "cohort_source": "first_observed_activity",
+  "max_periods": 12,
+  "observation_end": "2011-12-01",
+  "value_field": null,
+  "cohorts": [
+    {
+      "cohort": "2009-12-01",
+      "base_size": 951,
+      "observed_periods": 12,
+      "mature": true,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 951,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 333,
+          "retention_rate": 0.3501577287066246
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 317,
+          "retention_rate": 0.3333333333333333
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 404,
+          "retention_rate": 0.42481598317560465
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 360,
+          "retention_rate": 0.3785488958990536
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 342,
+          "retention_rate": 0.35962145110410093
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 358,
+          "retention_rate": 0.3764458464773922
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 327,
+          "retention_rate": 0.3438485804416404
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 321,
+          "retention_rate": 0.33753943217665616
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 344,
+          "retention_rate": 0.3617245005257624
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 401,
+          "retention_rate": 0.4216614090431125
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 472,
+          "retention_rate": 0.49631966351209256
+        },
+        {
+          "period_offset": 12,
+          "retained_entities": 358,
+          "retention_rate": 0.3764458464773922
+        }
+      ]
+    },
+    {
+      "cohort": "2010-01-01",
+      "base_size": 368,
+      "observed_periods": 12,
+      "mature": true,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 368,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 79,
+          "retention_rate": 0.21467391304347827
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 118,
+          "retention_rate": 0.32065217391304346
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 116,
+          "retention_rate": 0.31521739130434784
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 100,
+          "retention_rate": 0.2717391304347826
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 114,
+          "retention_rate": 0.30978260869565216
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 99,
+          "retention_rate": 0.26902173913043476
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 86,
+          "retention_rate": 0.23369565217391305
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 105,
+          "retention_rate": 0.28532608695652173
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 120,
+          "retention_rate": 0.32608695652173914
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 114,
+          "retention_rate": 0.30978260869565216
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 66,
+          "retention_rate": 0.1793478260869565
+        },
+        {
+          "period_offset": 12,
+          "retained_entities": 84,
+          "retention_rate": 0.22826086956521738
+        }
+      ]
+    },
+    {
+      "cohort": "2010-02-01",
+      "base_size": 375,
+      "observed_periods": 12,
+      "mature": true,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 375,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 88,
+          "retention_rate": 0.23466666666666666
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 85,
+          "retention_rate": 0.22666666666666666
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 110,
+          "retention_rate": 0.29333333333333333
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 92,
+          "retention_rate": 0.24533333333333332
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 74,
+          "retention_rate": 0.19733333333333333
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 72,
+          "retention_rate": 0.192
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 108,
+          "retention_rate": 0.288
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 96,
+          "retention_rate": 0.256
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 104,
+          "retention_rate": 0.2773333333333333
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 43,
+          "retention_rate": 0.11466666666666667
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 47,
+          "retention_rate": 0.12533333333333332
+        },
+        {
+          "period_offset": 12,
+          "retained_entities": 57,
+          "retention_rate": 0.152
+        }
+      ]
+    },
+    {
+      "cohort": "2010-03-01",
+      "base_size": 441,
+      "observed_periods": 12,
+      "mature": true,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 441,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 84,
+          "retention_rate": 0.19047619047619047
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 102,
+          "retention_rate": 0.23129251700680273
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 107,
+          "retention_rate": 0.24263038548752835
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 102,
+          "retention_rate": 0.23129251700680273
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 90,
+          "retention_rate": 0.20408163265306123
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 109,
+          "retention_rate": 0.2471655328798186
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 135,
+          "retention_rate": 0.30612244897959184
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 122,
+          "retention_rate": 0.2766439909297052
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 48,
+          "retention_rate": 0.10884353741496598
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 51,
+          "retention_rate": 0.11564625850340136
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 64,
+          "retention_rate": 0.14512471655328799
+        },
+        {
+          "period_offset": 12,
+          "retained_entities": 88,
+          "retention_rate": 0.19954648526077098
+        }
+      ]
+    },
+    {
+      "cohort": "2010-04-01",
+      "base_size": 294,
+      "observed_periods": 12,
+      "mature": true,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 294,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 56,
+          "retention_rate": 0.19047619047619047
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 56,
+          "retention_rate": 0.19047619047619047
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 47,
+          "retention_rate": 0.1598639455782313
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 54,
+          "retention_rate": 0.1836734693877551
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 65,
+          "retention_rate": 0.22108843537414966
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 81,
+          "retention_rate": 0.2755102040816326
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 78,
+          "retention_rate": 0.2653061224489796
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 31,
+          "retention_rate": 0.1054421768707483
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 32,
+          "retention_rate": 0.10884353741496598
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 22,
+          "retention_rate": 0.07482993197278912
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 41,
+          "retention_rate": 0.13945578231292516
+        },
+        {
+          "period_offset": 12,
+          "retained_entities": 42,
+          "retention_rate": 0.14285714285714285
+        }
+      ]
+    },
+    {
+      "cohort": "2010-05-01",
+      "base_size": 255,
+      "observed_periods": 12,
+      "mature": true,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 255,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 40,
+          "retention_rate": 0.1568627450980392
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 43,
+          "retention_rate": 0.16862745098039217
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 45,
+          "retention_rate": 0.17647058823529413
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 45,
+          "retention_rate": 0.17647058823529413
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 65,
+          "retention_rate": 0.2549019607843137
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 54,
+          "retention_rate": 0.21176470588235294
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 32,
+          "retention_rate": 0.12549019607843137
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 15,
+          "retention_rate": 0.058823529411764705
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 21,
+          "retention_rate": 0.08235294117647059
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 29,
+          "retention_rate": 0.11372549019607843
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 34,
+          "retention_rate": 0.13333333333333333
+        },
+        {
+          "period_offset": 12,
+          "retained_entities": 39,
+          "retention_rate": 0.15294117647058825
+        }
+      ]
+    },
+    {
+      "cohort": "2010-06-01",
+      "base_size": 267,
+      "observed_periods": 12,
+      "mature": true,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 267,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 47,
+          "retention_rate": 0.1760299625468165
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 50,
+          "retention_rate": 0.18726591760299627
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 55,
+          "retention_rate": 0.20599250936329588
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 62,
+          "retention_rate": 0.23220973782771537
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 76,
+          "retention_rate": 0.2846441947565543
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 34,
+          "retention_rate": 0.12734082397003746
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 24,
+          "retention_rate": 0.0898876404494382
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 22,
+          "retention_rate": 0.08239700374531835
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 30,
+          "retention_rate": 0.11235955056179775
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 28,
+          "retention_rate": 0.10486891385767791
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 37,
+          "retention_rate": 0.13857677902621723
+        },
+        {
+          "period_offset": 12,
+          "retained_entities": 40,
+          "retention_rate": 0.149812734082397
+        }
+      ]
+    },
+    {
+      "cohort": "2010-07-01",
+      "base_size": 185,
+      "observed_periods": 12,
+      "mature": true,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 185,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 29,
+          "retention_rate": 0.15675675675675677
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 34,
+          "retention_rate": 0.1837837837837838
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 55,
+          "retention_rate": 0.2972972972972973
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 54,
+          "retention_rate": 0.2918918918918919
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 26,
+          "retention_rate": 0.14054054054054055
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 21,
+          "retention_rate": 0.11351351351351352
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 27,
+          "retention_rate": 0.14594594594594595
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 27,
+          "retention_rate": 0.14594594594594595
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 21,
+          "retention_rate": 0.11351351351351352
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 25,
+          "retention_rate": 0.13513513513513514
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 27,
+          "retention_rate": 0.14594594594594595
+        },
+        {
+          "period_offset": 12,
+          "retained_entities": 24,
+          "retention_rate": 0.12972972972972974
+        }
+      ]
+    },
+    {
+      "cohort": "2010-08-01",
+      "base_size": 163,
+      "observed_periods": 12,
+      "mature": true,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 163,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 32,
+          "retention_rate": 0.19631901840490798
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 47,
+          "retention_rate": 0.2883435582822086
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 53,
+          "retention_rate": 0.32515337423312884
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 27,
+          "retention_rate": 0.1656441717791411
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 19,
+          "retention_rate": 0.1165644171779141
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 16,
+          "retention_rate": 0.09815950920245399
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 21,
+          "retention_rate": 0.12883435582822086
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 22,
+          "retention_rate": 0.13496932515337423
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 21,
+          "retention_rate": 0.12883435582822086
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 21,
+          "retention_rate": 0.12883435582822086
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 19,
+          "retention_rate": 0.1165644171779141
+        },
+        {
+          "period_offset": 12,
+          "retained_entities": 24,
+          "retention_rate": 0.147239263803681
+        }
+      ]
+    },
+    {
+      "cohort": "2010-09-01",
+      "base_size": 239,
+      "observed_periods": 12,
+      "mature": true,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 239,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 55,
+          "retention_rate": 0.2301255230125523
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 56,
+          "retention_rate": 0.23430962343096234
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 31,
+          "retention_rate": 0.1297071129707113
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 21,
+          "retention_rate": 0.08786610878661087
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 25,
+          "retention_rate": 0.10460251046025104
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 33,
+          "retention_rate": 0.13807531380753138
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 23,
+          "retention_rate": 0.09623430962343096
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 31,
+          "retention_rate": 0.1297071129707113
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 31,
+          "retention_rate": 0.1297071129707113
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 29,
+          "retention_rate": 0.12133891213389121
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 24,
+          "retention_rate": 0.100418410041841
+        },
+        {
+          "period_offset": 12,
+          "retained_entities": 54,
+          "retention_rate": 0.22594142259414227
+        }
+      ]
+    },
+    {
+      "cohort": "2010-10-01",
+      "base_size": 375,
+      "observed_periods": 12,
+      "mature": true,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 375,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 97,
+          "retention_rate": 0.25866666666666666
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 55,
+          "retention_rate": 0.14666666666666667
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 47,
+          "retention_rate": 0.12533333333333332
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 33,
+          "retention_rate": 0.088
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 31,
+          "retention_rate": 0.08266666666666667
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 49,
+          "retention_rate": 0.13066666666666665
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 52,
+          "retention_rate": 0.13866666666666666
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 40,
+          "retention_rate": 0.10666666666666667
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 35,
+          "retention_rate": 0.09333333333333334
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 40,
+          "retention_rate": 0.10666666666666667
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 48,
+          "retention_rate": 0.128
+        },
+        {
+          "period_offset": 12,
+          "retained_entities": 72,
+          "retention_rate": 0.192
+        }
+      ]
+    },
+    {
+      "cohort": "2010-11-01",
+      "base_size": 326,
+      "observed_periods": 12,
+      "mature": true,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 326,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 57,
+          "retention_rate": 0.17484662576687116
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 31,
+          "retention_rate": 0.0950920245398773
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 31,
+          "retention_rate": 0.0950920245398773
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 25,
+          "retention_rate": 0.07668711656441718
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 29,
+          "retention_rate": 0.08895705521472393
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 42,
+          "retention_rate": 0.12883435582822086
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 33,
+          "retention_rate": 0.10122699386503067
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 28,
+          "retention_rate": 0.08588957055214724
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 30,
+          "retention_rate": 0.09202453987730061
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 36,
+          "retention_rate": 0.11042944785276074
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 48,
+          "retention_rate": 0.147239263803681
+        },
+        {
+          "period_offset": 12,
+          "retained_entities": 82,
+          "retention_rate": 0.25153374233128833
+        }
+      ]
+    },
+    {
+      "cohort": "2010-12-01",
+      "base_size": 76,
+      "observed_periods": 12,
+      "mature": false,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 76,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 7,
+          "retention_rate": 0.09210526315789473
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 4,
+          "retention_rate": 0.05263157894736842
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 7,
+          "retention_rate": 0.09210526315789473
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 9,
+          "retention_rate": 0.11842105263157894
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 5,
+          "retention_rate": 0.06578947368421052
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 4,
+          "retention_rate": 0.05263157894736842
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 7,
+          "retention_rate": 0.09210526315789473
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 4,
+          "retention_rate": 0.05263157894736842
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 2,
+          "retention_rate": 0.02631578947368421
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 7,
+          "retention_rate": 0.09210526315789473
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 15,
+          "retention_rate": 0.19736842105263158
+        },
+        {
+          "period_offset": 12,
+          "retained_entities": 2,
+          "retention_rate": 0.02631578947368421
+        }
+      ]
+    },
+    {
+      "cohort": "2011-01-01",
+      "base_size": 72,
+      "observed_periods": 11,
+      "mature": false,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 72,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 12,
+          "retention_rate": 0.16666666666666666
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 16,
+          "retention_rate": 0.2222222222222222
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 14,
+          "retention_rate": 0.19444444444444445
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 16,
+          "retention_rate": 0.2222222222222222
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 11,
+          "retention_rate": 0.1527777777777778
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 11,
+          "retention_rate": 0.1527777777777778
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 9,
+          "retention_rate": 0.125
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 8,
+          "retention_rate": 0.1111111111111111
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 15,
+          "retention_rate": 0.20833333333333334
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 18,
+          "retention_rate": 0.25
+        },
+        {
+          "period_offset": 11,
+          "retained_entities": 8,
+          "retention_rate": 0.1111111111111111
+        }
+      ]
+    },
+    {
+      "cohort": "2011-02-01",
+      "base_size": 125,
+      "observed_periods": 10,
+      "mature": false,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 125,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 20,
+          "retention_rate": 0.16
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 20,
+          "retention_rate": 0.16
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 23,
+          "retention_rate": 0.184
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 27,
+          "retention_rate": 0.216
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 20,
+          "retention_rate": 0.16
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 20,
+          "retention_rate": 0.16
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 19,
+          "retention_rate": 0.152
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 19,
+          "retention_rate": 0.152
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 23,
+          "retention_rate": 0.184
+        },
+        {
+          "period_offset": 10,
+          "retained_entities": 8,
+          "retention_rate": 0.064
+        }
+      ]
+    },
+    {
+      "cohort": "2011-03-01",
+      "base_size": 179,
+      "observed_periods": 9,
+      "mature": false,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 179,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 32,
+          "retention_rate": 0.1787709497206704
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 39,
+          "retention_rate": 0.21787709497206703
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 36,
+          "retention_rate": 0.2011173184357542
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 40,
+          "retention_rate": 0.22346368715083798
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 27,
+          "retention_rate": 0.15083798882681565
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 37,
+          "retention_rate": 0.20670391061452514
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 36,
+          "retention_rate": 0.2011173184357542
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 43,
+          "retention_rate": 0.24022346368715083
+        },
+        {
+          "period_offset": 9,
+          "retained_entities": 17,
+          "retention_rate": 0.09497206703910614
+        }
+      ]
+    },
+    {
+      "cohort": "2011-04-01",
+      "base_size": 106,
+      "observed_periods": 8,
+      "mature": false,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 106,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 26,
+          "retention_rate": 0.24528301886792453
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 21,
+          "retention_rate": 0.19811320754716982
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 21,
+          "retention_rate": 0.19811320754716982
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 19,
+          "retention_rate": 0.1792452830188679
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 25,
+          "retention_rate": 0.2358490566037736
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 19,
+          "retention_rate": 0.1792452830188679
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 27,
+          "retention_rate": 0.25471698113207547
+        },
+        {
+          "period_offset": 8,
+          "retained_entities": 12,
+          "retention_rate": 0.11320754716981132
+        }
+      ]
+    },
+    {
+      "cohort": "2011-05-01",
+      "base_size": 111,
+      "observed_periods": 7,
+      "mature": false,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 111,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 26,
+          "retention_rate": 0.23423423423423423
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 27,
+          "retention_rate": 0.24324324324324326
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 18,
+          "retention_rate": 0.16216216216216217
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 24,
+          "retention_rate": 0.21621621621621623
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 23,
+          "retention_rate": 0.2072072072072072
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 29,
+          "retention_rate": 0.26126126126126126
+        },
+        {
+          "period_offset": 7,
+          "retained_entities": 13,
+          "retention_rate": 0.11711711711711711
+        }
+      ]
+    },
+    {
+      "cohort": "2011-06-01",
+      "base_size": 108,
+      "observed_periods": 6,
+      "mature": false,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 108,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 25,
+          "retention_rate": 0.23148148148148148
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 23,
+          "retention_rate": 0.21296296296296297
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 29,
+          "retention_rate": 0.26851851851851855
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 22,
+          "retention_rate": 0.2037037037037037
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 30,
+          "retention_rate": 0.2777777777777778
+        },
+        {
+          "period_offset": 6,
+          "retained_entities": 9,
+          "retention_rate": 0.08333333333333333
+        }
+      ]
+    },
+    {
+      "cohort": "2011-07-01",
+      "base_size": 101,
+      "observed_periods": 5,
+      "mature": false,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 101,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 21,
+          "retention_rate": 0.2079207920792079
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 30,
+          "retention_rate": 0.297029702970297
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 28,
+          "retention_rate": 0.27722772277227725
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 35,
+          "retention_rate": 0.3465346534653465
+        },
+        {
+          "period_offset": 5,
+          "retained_entities": 16,
+          "retention_rate": 0.15841584158415842
+        }
+      ]
+    },
+    {
+      "cohort": "2011-08-01",
+      "base_size": 107,
+      "observed_periods": 4,
+      "mature": false,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 107,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 28,
+          "retention_rate": 0.2616822429906542
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 32,
+          "retention_rate": 0.29906542056074764
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 28,
+          "retention_rate": 0.2616822429906542
+        },
+        {
+          "period_offset": 4,
+          "retained_entities": 18,
+          "retention_rate": 0.16822429906542055
+        }
+      ]
+    },
+    {
+      "cohort": "2011-09-01",
+      "base_size": 188,
+      "observed_periods": 3,
+      "mature": false,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 188,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 51,
+          "retention_rate": 0.2712765957446808
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 71,
+          "retention_rate": 0.3776595744680851
+        },
+        {
+          "period_offset": 3,
+          "retained_entities": 28,
+          "retention_rate": 0.14893617021276595
+        }
+      ]
+    },
+    {
+      "cohort": "2011-10-01",
+      "base_size": 221,
+      "observed_periods": 2,
+      "mature": false,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 221,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 70,
+          "retention_rate": 0.3167420814479638
+        },
+        {
+          "period_offset": 2,
+          "retained_entities": 35,
+          "retention_rate": 0.1583710407239819
+        }
+      ]
+    },
+    {
+      "cohort": "2011-11-01",
+      "base_size": 191,
+      "observed_periods": 1,
+      "mature": false,
+      "below_min_size": false,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 191,
+          "retention_rate": 1.0
+        },
+        {
+          "period_offset": 1,
+          "retained_entities": 27,
+          "retention_rate": 0.14136125654450263
+        }
+      ]
+    },
+    {
+      "cohort": "2011-12-01",
+      "base_size": 28,
+      "observed_periods": 0,
+      "mature": false,
+      "below_min_size": true,
+      "periods": [
+        {
+          "period_offset": 0,
+          "retained_entities": 28,
+          "retention_rate": 1.0
+        }
+      ]
+    }
+  ],
+  "mature_cohort_average_curve": [
+    {
+      "period_offset": 0,
+      "mean_retention_rate": 1.0,
+      "median_retention_rate": 1.0,
+      "cohort_count": 12
+    },
+    {
+      "period_offset": 1,
+      "mean_retention_rate": 0.21083816563514676,
+      "median_retention_rate": 0.1933976044405492,
+      "cohort_count": 12
+    },
+    {
+      "period_offset": 2,
+      "mean_retention_rate": 0.21720915889024364,
+      "median_retention_rate": 0.20857142857142857,
+      "cohort_count": 12
+    },
+    {
+      "period_offset": 3,
+      "mean_retention_rate": 0.23257560657099863,
+      "median_retention_rate": 0.22431144742541212,
+      "cohort_count": 12
+    },
+    {
+      "period_offset": 4,
+      "mean_retention_rate": 0.20244641342889982,
+      "median_retention_rate": 0.20748299319727892,
+      "cohort_count": 12
+    },
+    {
+      "period_offset": 5,
+      "mean_retention_rate": 0.19706540056343846,
+      "median_retention_rate": 0.2007074829931973,
+      "cohort_count": 12
+    },
+    {
+      "period_offset": 6,
+      "mean_retention_rate": 0.19237485095333795,
+      "median_retention_rate": 0.1650376569037657,
+      "cohort_count": 12
+    },
+    {
+      "period_offset": 7,
+      "mean_retention_rate": 0.18860490937510746,
+      "median_retention_rate": 0.1423063063063063,
+      "cohort_count": 12
+    },
+    {
+      "period_offset": 8,
+      "mean_retention_rate": 0.1671125701149633,
+      "median_retention_rate": 0.13233821906204277,
+      "cohort_count": 12
+    },
+    {
+      "period_offset": 9,
+      "mean_retention_rate": 0.16124643437267622,
+      "median_retention_rate": 0.11293653203765563,
+      "cohort_count": 12
+    },
+    {
+      "period_offset": 10,
+      "mean_retention_rate": 0.15479881637933773,
+      "median_retention_rate": 0.11515646258503401,
+      "cohort_count": 12
+    },
+    {
+      "period_offset": 11,
+      "mean_retention_rate": 0.16630495592729402,
+      "median_retention_rate": 0.1390162806695712,
+      "cohort_count": 12
+    },
+    {
+      "period_offset": 12,
+      "mean_retention_rate": 0.1956923677643625,
+      "median_retention_rate": 0.17247058823529413,
+      "cohort_count": 12
+    }
+  ],
+  "limitations": [
+    "留存率的分母是 cohort 期初实体数；不同 cohort 的分母不同，绝对人数不可直接比较。",
+    "cohort 差异只是同步现象，产品改动、投放结构和季节都会同时变化，不能直接归因于单一动作。",
+    "以下 cohort 观察窗未满 12 期，不能与成熟 cohort 排名：['2010-12-01', '2011-01-01', '2011-02-01', '2011-03-01', '2011-04-01', '2011-05-01', '2011-06-01', '2011-07-01', '2011-08-01', '2011-09-01']",
+    "以下 cohort 规模小于 30，留存率波动大：['2011-12-01']",
+    "cohort 按数据中首次出现的活跃期推断；数据起点之前已活跃的老用户会被误分入首期 cohort（左截断）。"
+  ],
+  "sheet": "purchase_events",
+  "config": {
+    "id_field": "CustomerID",
+    "date_field": "Date",
+    "period": "month",
+    "max_periods": 12,
+    "min_cohort_size": 30
+  }
+}

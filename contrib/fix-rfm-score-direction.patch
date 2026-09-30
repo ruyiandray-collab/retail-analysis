@@ -1,0 +1,57 @@
+--- a/scripts/da_growth.py
++++ b/scripts/da_growth.py
+@@ -718,7 +718,9 @@
+         raise ValueError(f"实体数 {entity_count} 少于分箱数 {bins}")
+ 
+     def score(series: pd.Series, ascending_is_better: bool) -> pd.Series:
+-        ranked = series.rank(method="first", ascending=ascending_is_better, pct=True)
++        # 分数越高越好：「越小越好」的 R 要降序排名，「越大越好」的 F/M 要升序排名。
++        # 并列值取平均名次：同样只买过 1 次的客户必须拿同一个 F 分，不能按行序被任意拆到不同档。
++        ranked = series.rank(method="average", ascending=not ascending_is_better, pct=True)
+         return np.ceil(ranked * bins).clip(1, bins).astype(int)
+ 
+     grouped["r_score"] = score(grouped["recency_days"], ascending_is_better=True)
+--- a/tests/test_operators.py
++++ b/tests/test_operators.py
+@@ -437,6 +437,32 @@
+     check("rfm 输出分位切点", len(result["score_cutoffs"]["monetary_quantiles"]) == 6)
+ 
+ 
++def test_rfm_score_direction() -> None:
++    reference = pd.Timestamp("2026-06-30")
++    rows = [{"uid": "best", "date": reference - pd.Timedelta(days=d), "amount": 1000.0} for d in (1, 2, 3)]
++    rows += [{"uid": f"u{i}", "date": reference - pd.Timedelta(days=60 * i), "amount": 10.0 * i} for i in range(1, 5)]
++    result = op_rfm(pd.DataFrame(rows), {
++        "id_field": "uid", "date_field": "date", "value_field": "amount",
++        "bins": 5, "reference_date": "2026-06-30", "min_segment_size": 1,
++    })
++    best = [item for item in result["segments"] if item["median_monetary"] == 3000.0]
++    check("rfm 最近、最频繁、金额最高的实体落在 high_value_active",
++          len(best) == 1 and best[0]["segment"] == "high_value_active",
++          f"segments={[(item['segment'], item['median_monetary']) for item in result['segments']]}")
++
++
++def test_rfm_ties_share_score() -> None:
++    reference = pd.Timestamp("2026-06-30")
++    rows = [{"uid": f"once{i}", "date": reference - pd.Timedelta(days=10), "amount": 50.0} for i in range(6)]
++    rows += [{"uid": "many", "date": reference - pd.Timedelta(days=d), "amount": 50.0} for d in range(1, 6)]
++    result = op_rfm(pd.DataFrame(rows), {
++        "id_field": "uid", "date_field": "date", "value_field": "amount",
++        "bins": 5, "reference_date": "2026-06-30", "min_segment_size": 1,
++    })
++    check("rfm 行为完全相同的实体落在同一分层", any(item["size"] >= 6 for item in result["segments"]),
++          f"segments={[(item['segment'], item['size']) for item in result['segments']]}")
++
++
+ def test_price_elasticity() -> None:
+     rng = np.random.default_rng(19)
+     price = rng.uniform(50, 150, 200)
+@@ -605,6 +631,8 @@
+         test_survival,
+         test_path_analysis,
+         test_rfm,
++        test_rfm_score_direction,
++        test_rfm_ties_share_score,
+         test_price_elasticity,
+         test_error_paths,
+         test_anomaly_gates,

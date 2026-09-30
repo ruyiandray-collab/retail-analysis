@@ -1,0 +1,38 @@
+{
+  "op": "reconcile",
+  "schema_version": "1.0",
+  "header_row": 1,
+  "label_column": "IsReturn",
+  "value_columns": [
+    "Invoice",
+    "StockCode",
+    "Quantity",
+    "Price",
+    "Amount",
+    "CustomerID"
+  ],
+  "summary_rows": [],
+  "reconciliations": [],
+  "skipped": [],
+  "excluded_rows": [],
+  "master_check": {
+    "status": "no_summary_rows",
+    "checked": 0,
+    "failed": 0,
+    "failed_ids": [],
+    "verdict": "未发现可对账的合计/小计行；本表没有可用于交叉验证的校验和。"
+  },
+  "limitations": [
+    "只做加总对账：比率行（占比/同比/率）与比率列不参与，已列入 skipped。",
+    "对账只证明「明细之和与汇总一致」，证明不了口径是否合理、明细行本身是否该被排除。",
+    "嵌套小计以明细行为基准；若子小计与明细不一致，父子层级会同时报出，需要人工定位是哪一层错。",
+    "不解析「1.2万」「3亿」这类带中文数量级的单元格，这类表格请先规范成纯数值。",
+    "多区块堆叠的表会同时尝试「全表明细」与「紧邻区块」两种口径，任一成立即视为对上。"
+  ],
+  "sheet": "clean_lines",
+  "file": {
+    "path": "data/clean_lines.csv",
+    "name": "clean_lines.csv",
+    "sha256": "630f1af66139845885553679aa672517f8857d1f6c1d4e16c1b60ac31954e282"
+  }
+}
